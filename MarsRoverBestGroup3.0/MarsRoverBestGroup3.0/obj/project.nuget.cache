@@ -1,8 +1,20 @@
 {
   "version": 2,
-  "dgSpecHash": "CRRnUiCpmftDP4hMpcUQf3N7QacNXA4tUoREqJDeblGi2h9C81ErBWJ7fzNWZu4b+DwMnKDnmWMwbOby9AukwQ==",
+  "dgSpecHash": "miVnaxmGqsZc8adk56i365O/MZRgwBIgqqQ3df8lqftSZuti5ygUxO0Wlr0cbFsz1a/Ecsn5mVCzh+oWzywKYg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\josephb\\OneDrive - UCAS\\Documents\\C# Programming\\Mars Rover\\MarsRoverBestGroup3.0\\MarsRoverBestGroup3.0\\MarsRoverBestGroup3.0.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\Ray\\Source\\Repos\\MarsRoverBestGroup\\MarsRoverBestGroup3.0\\MarsRoverBestGroup3.0\\MarsRoverBestGroup3.0.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Ray\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
+    "C:\\Users\\Ray\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
+    "C:\\Users\\Ray\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\Ray\\.nuget\\packages\\restsharp\\106.12.0\\restsharp.106.12.0.nupkg.sha512",
+    "C:\\Users\\Ray\\.nuget\\packages\\system.configuration.configurationmanager\\5.0.0\\system.configuration.configurationmanager.5.0.0.nupkg.sha512",
+    "C:\\Users\\Ray\\.nuget\\packages\\system.drawing.common\\5.0.0\\system.drawing.common.5.0.0.nupkg.sha512",
+    "C:\\Users\\Ray\\.nuget\\packages\\system.security.accesscontrol\\5.0.0\\system.security.accesscontrol.5.0.0.nupkg.sha512",
+    "C:\\Users\\Ray\\.nuget\\packages\\system.security.cryptography.protecteddata\\5.0.0\\system.security.cryptography.protecteddata.5.0.0.nupkg.sha512",
+    "C:\\Users\\Ray\\.nuget\\packages\\system.security.permissions\\5.0.0\\system.security.permissions.5.0.0.nupkg.sha512",
+    "C:\\Users\\Ray\\.nuget\\packages\\system.security.principal.windows\\5.0.0\\system.security.principal.windows.5.0.0.nupkg.sha512",
+    "C:\\Users\\Ray\\.nuget\\packages\\system.windows.extensions\\5.0.0\\system.windows.extensions.5.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
