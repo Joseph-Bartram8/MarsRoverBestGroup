@@ -9,31 +9,23 @@ namespace MarsRoverBestGroup3._0.Models
 
     public class MarsDate
     {
-        public double EarthToMarsDate(DateTime dateQuery)
+        public double EarthToMarsDate(DateTime dateRequest)
         {
-            
+            //create date time object  in 1873 
             DateTime baseTime = new DateTime(1873, 12, 29, 00, 00, 0);
-            DateTime datequery = new DateTime(2021, 10, 04, 00, 00, 0);
 
-            System.TimeSpan diff1 = datequery.Subtract(baseTime);
+            //find the difference between the two dates
+            TimeSpan diff1 = dateRequest.Subtract(baseTime);
 
-            Console.WriteLine(  diff1);
-            //create date time object  in 18?? 
+            //convert to seconds
+            double differenceInSeconds = diff1.TotalSeconds;
+     
+            //add seconds to formula to get Mars Sol Date
+            double MarsSolDate = (differenceInSeconds - 2451561.5 ) / 1.02749125 + 44796.0;
 
-            //input date subract date of 18?? 
-            //Convert that to seconds
-            //feed seconds into formula
-            //put in a method and return the result
-            //DateTime theDate = DateTime.UtcNow;
-
-        //double MarsSolDate = (theDate - 2451561.5 ) / 1.02749125 + 44796.0;
-
-
-
+            return MarsSolDate;
 
         }
-        
-        
-
+     
     }
 }
