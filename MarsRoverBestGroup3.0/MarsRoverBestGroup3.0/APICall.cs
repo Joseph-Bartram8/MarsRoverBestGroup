@@ -29,9 +29,10 @@ namespace MarsRoverBestGroup3._0
             var apod = JsonConvert.DeserializeObject<APOD>(response.Content);
             return apod;
         }
-        public static List<Photo> GetMarsRoverPhotosByDate(string earth_date)
+        public static List<Photo> GetMarsRoverPhotosByDate(DateTime earth_date)
         {
-            var response = GenericCall($"/mars-photos/api/v1/rovers/curiosity/photos?earth_date={earth_date}&");
+            var earth_date_to_string = earth_date.ToString("yyyy-MM-dd");
+            var response = GenericCall($"/mars-photos/api/v1/rovers/curiosity/photos?earth_date={earth_date_to_string}&");
             var mars_rover_pictures = JsonConvert.DeserializeObject<MarsRoverPhotosResponse>(response.Content);
             return mars_rover_pictures.photos;
         }
