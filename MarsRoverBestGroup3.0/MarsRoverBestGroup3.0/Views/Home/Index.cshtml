@@ -3,19 +3,40 @@
 }
 
 <html>
-<body>
+<body class="container">
 
-
-
-    <div class="text-center">
-        <h1 class="display-4">Welcome</h1>
-        <div>
-            <img src="~/Images/roverboy.jpg" width="500" height="333">
+    <div class="menu-wrap">
+        <input id="menu_button" type="checkbox" class="toggler">
+        <div class="hamburger"><div></div></div>
+        <div class="menu" onclick="menuClose()">
+            <div>
+                <div>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="about_me.html">Page 2</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div float="10px"width="300px" height="50px" style="padding:5px;border:groove">
-            <p>Hello this is rover he is lonely in space, keep him company for a while</p>
-        </div>
-
     </div>
+    <section class="s_container">
+        <div class="d_header">
+            <h1>
+                Welcome
+            </h1>
+        </div>
+        <section class="intro">
+            <div style="padding:5px;border:groove">
+                <img src="~/Images/roverboy.jpg" width="500" height="333">
+                <p>Hello this is rover he is lonely in space, keep him company for a while</p>
+            </div>
+        </section>
+        <section class="s_container_inner">
+            <a href="" class="btn">Read More</a>
+        </section>
+        <div class="d_footer">
+
+        </div>
+    </section>
 </body>
 </html>
