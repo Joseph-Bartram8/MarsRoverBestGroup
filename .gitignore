@@ -3,6 +3,12 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+MarsRoverBestGroup3.0/.vs/
+MarsRoverBestGroup3.0/MarsRoverBestGroup3.0/bin/
+MarsRoverBestGroup3.0/MarsRoverBestGroup3.0/obj/
+MarsRoverBestGroup3.0/MarsRoverBestGroup3.0/logs/
+MarsRoverBestGroup3.0/MarsRoverBestGroup3.0/[Dd]ebug/
+
 # User-specific files
 *.rsuser
 *.suo
