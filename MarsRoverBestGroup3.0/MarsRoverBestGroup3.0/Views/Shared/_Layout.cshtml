@@ -11,19 +11,25 @@
     <title>Home Page</title>
 </head>
 <body>
-    <!---   <script>
-         window.addEventListener('mouseup',function(event){
-           var box = document.getElementsByClassName('box');
-           if(event.target != box){
-             box.style.display = 'none';
-           }
-         });
-       </script>-->
+    <div class="menu-wrap">
+        <input id="menu_button" type="checkbox" class="toggler">
+        <div class="hamburger"><div></div></div>
+        <div class="menu" onclick="menuClose()">
+            <div>
+                <div>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="about_me.html">Page 2</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <section class="s_container">
         <main role="main" class="pb-3">
             @RenderBody()
-        </main>    
+        </main>
     </section>
 </body>
 </html>
