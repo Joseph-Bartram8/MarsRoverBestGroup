@@ -14,8 +14,8 @@ namespace MarsRoverBestGroup3._0
         public static IRestResponse GenericCall(string rest_request)
         {
             var apiKey = ConfigurationManager.AppSettings["APIKey"];
-            var client = new RestClient("https://api.nasa.gov/planetary/");
-            var request = new RestRequest($"{rest_request}/?api_key={apiKey}", DataFormat.Json);
+            var client = new RestClient("https://api.nasa.gov");
+            var request = new RestRequest($"{rest_request}api_key={apiKey}", DataFormat.Json);
             var response = client.Get(request);
             if (response.StatusCode != System.Net.HttpStatusCode.OK)
             {
@@ -25,9 +25,15 @@ namespace MarsRoverBestGroup3._0
         }
         public static APOD AstronomyPhotoOfTheDay() 
         {
-            var response = GenericCall("apod");
+            var response = GenericCall("/planetary/apod?");
             var apod = JsonConvert.DeserializeObject<APOD>(response.Content);
             return apod;
+        }
+        public static List<Photo> GetMarsRoverPhotosByDate(string earth_date)
+        {
+            var response = GenericCall($"/mars-photos/api/v1/rovers/curiosity/photos?earth_date={earth_date}&");
+            var mars_rover_pictures = JsonConvert.DeserializeObject<MarsRoverPhotosResponse>(response.Content);
+            return mars_rover_pictures.photos;
         }
     }
 }
