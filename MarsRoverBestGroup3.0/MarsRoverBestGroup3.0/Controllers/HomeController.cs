@@ -20,6 +20,7 @@ namespace MarsRoverBestGroup3._0.Controllers
 
         public IActionResult Index()
         {
+            ViewData["Test"] = "Test";
             return View();
         }
 
@@ -28,7 +29,7 @@ namespace MarsRoverBestGroup3._0.Controllers
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+            [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });

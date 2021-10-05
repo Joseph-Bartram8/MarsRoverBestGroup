@@ -1,0 +1,28 @@
+﻿.s_container_inner {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: nowrap;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.intro {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+    .intro p {
+        width: 60%;
+    }
+
+.d_header {
+    padding: 300px 0 0 0;
+}
+
+h1 {
+    font-size: 70px;
+}
