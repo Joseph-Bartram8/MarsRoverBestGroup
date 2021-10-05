@@ -35,6 +35,22 @@ namespace MarsRoverBestGroup3._0.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        
+
+
+        [HttpPost]
+        public IActionResult ConvertEarthDate(Dates dates)
+        {
+
+            
+            var marsDate = MarsDate.EarthToMarsDate(dates.earthInputDate);
+
+
+            var convertedDate = new Dates { marsOutputDate= marsDate };
+
+
+            return View(convertedDate);
+        }
+
+
     }
 }
