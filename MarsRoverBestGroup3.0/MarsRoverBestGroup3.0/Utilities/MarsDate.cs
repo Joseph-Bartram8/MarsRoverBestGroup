@@ -58,10 +58,10 @@ namespace MarsRoverBestGroup3._0.Models
             return MarsSolDate;
         }
         public static double marsConversionRate = 88775.0/86400.0;
-        public static double MarsToEarthDate(DateTime marsDate)
+        public static int MarsToEarthDate(DateTime marsDate)
         {
-            double differenceInDays = (double)marsDate.Subtract(new DateTime(1873, 12, 29)).TotalDays;
-            double earthSolDate = (double)(differenceInDays * marsConversionRate);
+            int differenceInDays = (int)marsDate.Subtract(new DateTime(1873, 12, 29)).TotalDays;
+            int earthSolDate = (int)(differenceInDays * marsConversionRate);
             return earthSolDate;
 
         }
