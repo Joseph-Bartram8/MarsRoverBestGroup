@@ -1,4 +1,4 @@
-﻿@{
+@{
     ViewData["Title"] = "Home Page";
 }
 @model HomepageViewModel;
@@ -7,48 +7,35 @@
 
 <html>
 <body class="container">
-
-    <section class="s_container">
-        <div class="d_header">
-            <h1>
-                Welcome
-            </h1>
-            <h2>
-                @DateTime.Now
-            </h2>
-        </div>
-        <section class="intro">
-            <div style="padding:5px;border:groove">
-                <img src="~/Images/roverboy.jpg" width="500" height="333">
-                <p>Hello this is rover he is lonely in space, keep him company for a while</p>
+    <div id="index-flex">
+        <div id="index-welcome">
+            <div id="welcome-container">
+                <h1 id="header">welcome to mars</h1>
+                <p id="motto">we got:</p>
             </div>
-            <div>
-                <a class="twitter-timeline" data-width="200%" data-height="75%" data-theme="light" href="https://twitter.com/MarsCuriosity?ref_src=twsrc%5Etfw">Tweets by MarsCuriosity</a>
-                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-            </div>
-        </section>
-        <section class="s_container_inner">
-            <a href="" class="btn">Read More</a>
-        </section>
-        
-        <div>
-            <form method="post" action="/Home/ConvertEarthDate" class="d-flex">
-                <input class="form-control me-2" id="earth-date-input" type="date" name="earthInputDate" placeholder="Earth date" aria-label="Earth date" style="text-align: center; margin-top: 10px">
-                <button class="btn btn-outline-danger" id ="earth-to-mars-convert" type="submit">Convert to</button>
-                <output class="form-control me-2" id="mars-date-output" for="earth-date-input" aria-label="Mars Sol date" style="text-align: center; margin-top: 10px ">@Model.marsOutputDate</output>
-            </form>
-         </div>
-         @*<div>
-            <form class="d-flex">
-                <input class="form-control me-2" id="mars-date-input" type="date" placeholder="Mars Sol Date" aria-label="Mars Sol Date" style="text-align: center; margin-top: 10px">
-                <button class="btn btn-outline-danger " id ="mars-to-earth-convert" type="submit">Convert to</button>
-                <output class="form-control me-2" id="earth-date-output" name="result" for="mars-date-input" aria-label="Earth date" style="text-align: center; margin-top: 10px ">Earth Date</output>
-            </form>
-        </div>*@
-            
-        <div class="d_footer">
-
         </div>
-    </section>
+        <div id="index-previews">
+            <div style="background-image: url(/Images/Curiositys-Selfie.jpg)" class="banner-container">
+                <div class="banner">
+                    <h2 class="preview-title">ROVER<br />BOY</h2>
+                </div>
+            </div>
+            <div style="background-image: url(/Images/marslandscape.jpg);" class="banner-container">
+                <div class="banner-r">
+                    <h2 class="preview-title">BIG<br />ROCKS</h2>
+                </div>
+            </div>
+            <div style="background-image: url(/Images/degu-mouse.jpg)" class="banner-container">
+                <div class="banner">
+                    <h2 class="preview-title">ANGRY<br />MARTIANS</h2>
+                </div>
+            </div>
+            <div style="background-image: url(@APICall.AstronomyPhotoOfTheDay().url)" class="banner-container">
+                <div class="banner-r">
+                    <h2 class="preview-title">COSMIC<br />ENTITIES</h2>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
