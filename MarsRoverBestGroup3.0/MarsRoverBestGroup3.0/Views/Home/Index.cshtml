@@ -1,7 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-@model Dates
+@model HomepageViewModel;
 
 
 
@@ -32,19 +32,19 @@
         </section>
         
         <div>
-            <form class="d-flex">
-                <input class="form-control me-2" id="earth-date-input" type="date" placeholder="Earth date" aria-label="Earth date" style="text-align: center; margin-top: 10px">
+            <form method="post" action="/Home/ConvertEarthDate" class="d-flex">
+                <input class="form-control me-2" id="earth-date-input" type="date" name="earthInputDate" placeholder="Earth date" aria-label="Earth date" style="text-align: center; margin-top: 10px">
                 <button class="btn btn-outline-danger" id ="earth-to-mars-convert" type="submit">Convert to</button>
-                <output class="form-control me-2" id="mars-date-output" name="result" for="earth-date-input" aria-label="Mars Sol date" style="text-align: center; margin-top: 10px ">Mars Sol Date</output>
+                <output class="form-control me-2" id="mars-date-output" for="earth-date-input" aria-label="Mars Sol date" style="text-align: center; margin-top: 10px ">@Model.marsOutputDate</output>
             </form>
          </div>
-         <div>
+         @*<div>
             <form class="d-flex">
                 <input class="form-control me-2" id="mars-date-input" type="date" placeholder="Mars Sol Date" aria-label="Mars Sol Date" style="text-align: center; margin-top: 10px">
                 <button class="btn btn-outline-danger " id ="mars-to-earth-convert" type="submit">Convert to</button>
                 <output class="form-control me-2" id="earth-date-output" name="result" for="mars-date-input" aria-label="Earth date" style="text-align: center; margin-top: 10px ">Earth Date</output>
             </form>
-        </div>
+        </div>*@
             
         <div class="d_footer">
 

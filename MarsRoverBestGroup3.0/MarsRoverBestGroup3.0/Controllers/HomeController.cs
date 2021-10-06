@@ -21,7 +21,7 @@ namespace MarsRoverBestGroup3._0.Controllers
         public IActionResult Index()
         {
             ViewData["Test"] = "Test";
-            return View();
+            return View(new HomepageViewModel());
         }
 
         public IActionResult Privacy()
@@ -42,13 +42,13 @@ namespace MarsRoverBestGroup3._0.Controllers
         {
 
             
-            var marsDate = MarsDate.EarthToMarsDate(dates.earthInputDate);
+            var marsDate = DateConverter.EarthToMarsDate(dates.earthInputDate);
 
 
-            var convertedDate = new Dates { marsOutputDate= marsDate };
+            var convertedDate = new HomepageViewModel { marsOutputDate= marsDate };
 
 
-            return View(convertedDate);
+            return View("Index", convertedDate);
         }
 
 
