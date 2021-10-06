@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace MarsRoverBestGroup3._0.Models
 {
 
-    public static class DateCoverter
+    public static class DateConverter
     {
         /*
         public static double EarthToMarsDate(DateTime dateRequest)
@@ -65,6 +65,11 @@ namespace MarsRoverBestGroup3._0.Models
             return earthSolDate;
 
         }
-       
+        public static double RoverSol(DateTime roverDate)
+        {
+            double differenceInDays = (double)roverDate.Subtract(new DateTime(2012, 08, 06)).TotalDays;
+            double roverDays = (double)(differenceInDays * earthConversionRate);
+            return roverDays;
+        }
     }
 }
