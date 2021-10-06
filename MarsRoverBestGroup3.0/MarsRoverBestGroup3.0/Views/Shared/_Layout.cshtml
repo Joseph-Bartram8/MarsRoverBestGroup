@@ -8,23 +8,38 @@
     <link rel="stylesheet" href="css/Index.css">
     <link rel="stylesheet" href="css/Grid.css">
     <script src="js/menu.js"></script>
-
     <title>Home Page</title>
 </head>
 <body>
-    <!---   <script>
-         window.addEventListener('mouseup',function(event){
-           var box = document.getElementsByClassName('box');
-           if(event.target != box){
-             box.style.display = 'none';
-           }
-         });
-       </script>-->
-
     <section class="s_container">
+        <div class="menu-wrap">
+            <input id="menu_button" type="checkbox" class="toggler">
+            <div class="hamburger"><div></div></div>
+            <div class="menu" onclick="menuClose()">
+                <div>
+                    <div>
+                        <ul>
+                            <li><a href="#">Index</a></li>
+                            <li><a href="#">Gallery</a></li>
+                            <li><a href="#">Conversions</a></li>
+                            <li><a href="#">Degu</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
         <main role="main" class="pb-3">
             @RenderBody()
-        </main>    
+        </main>
+        <footer>
+            <p>Mars Rover hub page designed by Claire, Sofie, Ray & Joseph :)</p>
+            <div id="footer-nav">
+                |<a> index </a>|
+                <a> gallery </a>|
+                <a> conversions </a>|
+                <a> degu </a>|
+            </div>
+        </footer>
     </section>
 </body>
 </html>
