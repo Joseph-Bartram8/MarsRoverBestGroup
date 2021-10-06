@@ -1,5 +1,5 @@
 ﻿:root {
-    --primary-color: rgba(255, 192, 203, 0.75);
+    --primary-color: white;
     --overlay-color: rgba(24, 39, 51, 0.85);
     --menu-speed: 0.75s;
 }
@@ -7,7 +7,7 @@
 html {
     height: 100%;
     margin: 0px;
-    background: url("https://upload.wikimedia.org/wikipedia/commons/4/47/Octodon_degus_-Heidelberg_Zoo%2C_Germany-8a.jpg") no-repeat center center fixed !important;
+    background: url("") no-repeat center center fixed !important;
     background-size: cover;
     -webkit-background-size: cover !important;
     -moz-background-size: cover !important;

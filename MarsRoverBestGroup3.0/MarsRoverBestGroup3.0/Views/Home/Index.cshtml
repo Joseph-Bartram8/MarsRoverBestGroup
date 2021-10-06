@@ -4,7 +4,33 @@
 
 <html>
 <body class="container">
-
+    <div class="home-grid">
+        <div class="hg-item" id="hg-welcome">
+            <div id="welcome-container">
+                <h1 id="header">welcome</h1>
+                <p id="motto">to space</p>
+            </div>
+        </div>
+        <div style="background-image: url(@APICall.AstronomyPhotoOfTheDay().url)" class="hg-item" id="hg-img">
+            <div id="banner-container">
+                <div id="tweet">
+                    <a class="twitter-timeline" data-width="200%" data-height="100%" data-theme="light" href="https://twitter.com/MarsCuriosity?ref_src=twsrc%5Etfw">Tweets by MarsCuriosity</a>
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </div>
+                <h2 id="title">ROVER<br />BOY</h2>
+            </div>
+            
+        </div>
+        <div class="hg-item" id="hg-footer">
+            <p>this is a test</p>
+            <div id="a-container">
+                |<a> HOME </a>|
+                <a> GALLERY </a>|
+                <a> CONVERSION </a>|
+            </div>
+        </div>
+    </div>
+    <!--
     <div class="menu-wrap">
         <input id="menu_button" type="checkbox" class="toggler">
         <div class="hamburger"><div></div></div>
@@ -42,8 +68,8 @@
             <a href="" class="btn">Read More</a>
         </section>
         <div class="d_footer">
-
         </div>
     </section>
+        -->
 </body>
 </html>
