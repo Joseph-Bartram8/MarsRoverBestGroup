@@ -1,35 +1,40 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Mars Rover Adventures</title>
     <link rel="stylesheet" href="/css/Menu.css">
     <link rel="stylesheet" href="/css/Style.css">
-    <link rel="stylesheet" href="/css/Index.css">
-    <script src="js/menu.js"></script>
-
+    <script src="/js/menu.js"></script>
+    <script src="/js/Gallery.js"></script>
     <title>Home Page</title>
 </head>
 <body>
-    <div class="menu-wrap">
-        <input id="menu_button" type="checkbox" class="toggler">
-        <div class="hamburger"><div></div></div>
-        <div class="menu" onclick="menuClose()">
-            <div>
+    <section class="s_container">
+        <div class="menu-wrap">
+            <input id="menu_button" type="checkbox" class="toggler">
+            <div class="hamburger"><div></div></div>
+            <div class="menu" onclick="menuClose()">
                 <div>
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="about_me.html">Page 2</a></li>
+                        <li>@Html.ActionLink("Home Page", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Gallery Page", "Gallery", "Home")</li>
                     </ul>
                 </div>
             </div>
         </div>
-    </div>
-
-    <section class="s_container">
         <main role="main" class="pb-3">
             @RenderBody()
-        </main>    
+        </main>
+        <footer>
+            <p>Mars Rover hub page designed by Claire, Sofie, Ray & Joseph :)</p>
+            <div id="footer-nav">
+                |<a> index </a>|
+                <a> gallery </a>|
+                <a> conversions </a>|
+                <a> degu </a>|
+            </div>
+        </footer>
     </section>
 </body>
 </html>
