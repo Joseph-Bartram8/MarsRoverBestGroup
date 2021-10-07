@@ -11,38 +11,32 @@ namespace MarsRoverBestGroup3._0
 {
     public class APICall
     {
-        public static APOD AstronomyPhotoOfTheDay() 
+        private readonly string _apiKey;
+        private RestClient _restClient;
+        public APICall()
         {
-            var apiKey = ConfigurationManager.AppSettings["APIKey"];
-            var client = new RestClient("https://api.nasa.gov");
-            var request = new RestRequest($"/planetary/apod?api_key={apiKey}", DataFormat.Json);
-            var response = client.Get(request);
-            if (response.StatusCode != System.Net.HttpStatusCode.OK)
-            {
-                throw new Exception("API call invalid");
-            }
+            _apiKey = ConfigurationManager.AppSettings["APIKey"];
+            _restClient = new RestClient("https://api.nasa.gov");
+        }
+        public APOD AstronomyPhotoOfTheDay() 
+        {
+            var request = new RestRequest($"/planetary/apod?api_key={_apiKey}", DataFormat.Json);
+            var response = _restClient.Get(request);
             var apod = JsonConvert.DeserializeObject<APOD>(response.Content);
             return apod;
         }
-        public static List<Photo> GetMarsRoverPhotosByDateAndRover(DateTime earth_date, string rover_name = "curiosity", string camera_name = null)
+        public List<Photo> GetMarsRoverPhotosByDateAndRover(DateTime earth_date, string rover_name = "curiosity", string camera_name = null)
         {
             var earth_date_to_string = earth_date.ToString("yyyy-MM-dd");
-            var api_key = ConfigurationManager.AppSettings["APIKey"];
-            var client = new RestClient("https://api.nasa.gov");
             var request = new RestRequest($"/mars-photos/api/v1/rovers/{rover_name}/photos", DataFormat.Json);
-            request.AddParameter("earth_date", earth_date_to_string);
+            request.AddQueryParameter("earth_date", earth_date_to_string);
             if (camera_name is not null)
             {
-                request.AddParameter("camera", camera_name);
+                request.AddQueryParameter("camera", camera_name);
             }
-            request.AddParameter("api_key", api_key);
-            var response = client.Get(request);
-            if (response.StatusCode != System.Net.HttpStatusCode.OK)
-            {
-                throw new Exception("API call invalid");
-            }
-            var mars_rover_pictures = JsonConvert.DeserializeObject<MarsRoverPhotosResponse>(response.Content);
-            return mars_rover_pictures.photos;
+            request.AddQueryParameter("api_key", _apiKey);
+            var response = _restClient.Get<MarsRoverPhotosResponse>(request);
+            return response.Data.photos;
         }
     }
 }
