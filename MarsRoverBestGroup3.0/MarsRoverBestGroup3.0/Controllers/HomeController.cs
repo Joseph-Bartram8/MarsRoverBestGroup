@@ -51,6 +51,20 @@ namespace MarsRoverBestGroup3._0.Controllers
             return View("Index", convertedDate);
         }
 
+        //[HttpPost]
+        //public IActionResult ConvertCurrentEarthDate(Dates dates)
+        //{
+
+
+        //    var marsDate = DateConverter.EarthToMarsDate(DateTime.Now);
+
+
+        //    var convertedDate = new LayoutViewModel { currentMarsOutputDate = marsDate };
+
+
+        //    return View("Layout", convertedDate);
+        //}
+
 
     }
 }
