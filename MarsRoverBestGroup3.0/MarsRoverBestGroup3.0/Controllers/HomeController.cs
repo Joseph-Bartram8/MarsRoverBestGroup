@@ -20,7 +20,11 @@ namespace MarsRoverBestGroup3._0.Controllers
 
         public IActionResult Index()
         {
-            ViewData["Test"] = "Test";
+            return View();
+        }
+
+        public IActionResult Gallery()
+        {
             return View();
         }
 
