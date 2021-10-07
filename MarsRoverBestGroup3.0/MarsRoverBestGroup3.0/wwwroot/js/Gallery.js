@@ -9,7 +9,6 @@
         case "mConverter":
             document.getElementById("copyConverter").style.display = "block";
             break;
-
     }
 }
 
