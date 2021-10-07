@@ -93,14 +93,14 @@ namespace MarsRoverBestGroup3._0.Models
             return (int)Math.Round(roverDays);
         }
         private static DateTime SpiritLandingDate = new DateTime(2004, 01, 04);
-        public static double SpiritSol(DateTime roverDate)
+        public static int SpiritSol(DateTime roverDate)
         {
             double differenceInDays = roverDate.Subtract(SpiritLandingDate).TotalDays;
             var roverDays = (differenceInDays * earthConversionRate);
             return (int)Math.Round(roverDays);
         }
         private static DateTime SojournerLandingDate = new DateTime(1997, 07, 04);
-        public static double SojournerSol(DateTime roverDate)
+        public static int SojournerSol(DateTime roverDate)
         {
             double differenceInDays = roverDate.Subtract(SojournerLandingDate).TotalDays;
             var roverDays = (differenceInDays * earthConversionRate);
