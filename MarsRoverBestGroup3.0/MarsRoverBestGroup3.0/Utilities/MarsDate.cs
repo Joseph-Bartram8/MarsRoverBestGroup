@@ -65,10 +65,35 @@ namespace MarsRoverBestGroup3._0.Models
             return earthSolDate;
 
         }
-        public static double RoverSol(DateTime roverDate)
+        //the time the different rovers have been on mars 
+        public static double CuriositySol(DateTime roverDate)
         {
-            double differenceInDays = (double)roverDate.Subtract(new DateTime(2012, 08, 06)).TotalDays;
-            double roverDays = (double)(differenceInDays * earthConversionRate);
+            double differenceInDays = (int)roverDate.Subtract(new DateTime(2012, 08, 06)).TotalDays;
+            double roverDays = (int)(differenceInDays * earthConversionRate);
+            return roverDays;
+        }
+        public static double PerseveranceSol(DateTime roverDate)
+        {
+            double differenceInDays = (int)roverDate.Subtract(new DateTime(2021, 02, 18)).TotalDays;
+            double roverDays = (int)(differenceInDays * earthConversionRate);
+            return roverDays;
+        }
+        public static double OpportunitySol(DateTime roverDate)
+        {
+            double differenceInDays = (int)roverDate.Subtract(new DateTime(2003, 07, 07)).TotalDays;
+            double roverDays = (int)(differenceInDays * earthConversionRate);
+            return roverDays;
+        }
+        public static double SpiritSol(DateTime roverDate)
+        {
+            double differenceInDays = (int)roverDate.Subtract(new DateTime(2004, 01, 04)).TotalDays;
+            double roverDays = (int)(differenceInDays * earthConversionRate);
+            return roverDays;
+        }
+        public static double SojournerSol(DateTime roverDate)
+        {
+            double differenceInDays = (int)roverDate.Subtract(new DateTime(1997, 07, 04)).TotalDays;
+            double roverDays = (int)(differenceInDays * earthConversionRate);
             return roverDays;
         }
     }
