@@ -24,6 +24,11 @@ namespace MarsRoverBestGroup3._0.Controllers
             return View(new HomepageViewModel());
         }
 
+        public IActionResult Gallery()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
