@@ -190,3 +190,17 @@ a {
         box-shadow: 0px 0px 20px#fff;
     }
 
+#earth-date-display{
+    border-style:solid;
+    border-color: darkgrey;
+    color: blue;
+    text-align:center;
+}
+
+#mars-date-display {
+    border-style: solid;
+    border-color: darkgrey;
+    color: red;
+    text-align: center;
+}
+
