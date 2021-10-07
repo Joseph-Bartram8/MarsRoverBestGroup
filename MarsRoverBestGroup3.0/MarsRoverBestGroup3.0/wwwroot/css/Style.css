@@ -1,34 +1,122 @@
 ﻿:root {
-    --primary-color: rgba(255, 192, 203, 0.75);
-    --overlay-color: rgba(24, 39, 51, 0.85);
     --menu-speed: 0.75s;
 }
 
-html {
-    height: 100%;
-    margin: 0px;
-    background: url("https://upload.wikimedia.org/wikipedia/commons/4/47/Octodon_degus_-Heidelberg_Zoo%2C_Germany-8a.jpg") no-repeat center center fixed !important;
-    background-size: cover;
-    -webkit-background-size: cover !important;
-    -moz-background-size: cover !important;
-    -o-background-size: cover !important;
-    background-attachment: fixed !important;
-}
-
-body {
-    margin: 0px;
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
     font-family: "Proxima Nova", "SF Pro", "Roboto", "Open Sans", Helvetica;
+    color:white;
     font-size: 18px;
-    background-color: var(--primary-color);
-    color: #fff;
 }
 
-h1 {
-    font-size: 38px;
+#index-flex {
+    display: flex;
+    flex-direction: column;
 }
 
-p {
-    padding: 10px 0 10px 0;
+#index-previews {
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 0px 10px 1px black;
+}
+
+.preview-title {
+    font-weight: 800;
+    font-size: 5em;
+    letter-spacing: -2px;
+    line-height: 0.8;
+    user-select: none;
+}
+
+#index-welcome {
+    display: flex;
+    color: black;
+    justify-content: space-around;
+    margin: 1em 0 1em 0;
+}
+
+#welcome-container {
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+    line-height: 0.8;
+}
+
+#header {
+    font-weight: 200;
+    letter-spacing: -3px;
+    font-size: 3em;
+    align-self: flex-end;
+    color:black;
+}
+
+#motto {
+    align-self: flex-end;
+    color:black;
+}
+
+.banner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 10px;
+    grid-area: img;
+    padding: 1em;
+    background-position: center;
+    box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5);
+    background-size: 100%;
+    transition: background-size 2s;
+    background-blend-mode: hard-light;
+    background-color: rgba(0,0,0,0.5);
+    cursor: pointer;
+}
+
+    .banner-container:hover {
+        background-size: 110%;
+        background-blend-mode: normal;
+    }
+
+.banner, .banner-r {
+    display: flex;
+    width: 1000px;
+    min-width: 700px;
+}
+
+.banner-r {
+    text-align: right;
+    justify-content: flex-end;
+}
+
+footer {
+    display: flex;
+    width: 100vw;
+    position: fixed;
+    background-color: rgba(0,0,0,1);
+    bottom: 0;
+    padding: 2px 1em 2px 1em;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#footer-nav {
+    display: flex;
+}
+
+a {
+    margin: 0px 2px 0px 2px;
+    cursor: pointer;
+}
+
+    a:hover {
+        color: white;
+    }
+
+footer p {
+    font-size: 0.8em !important;
 }
 
 a {
@@ -69,21 +157,21 @@ a {
     color: #aaa;
 }
 
-.d_submenu:hover {
-    background-color: rgba(20, 22, 24, 0.7);
-    color: #fff;
-    cursor: pointer;
-}
+    .d_submenu:hover {
+        background-color: rgba(20, 22, 24, 0.7);
+        color: #fff;
+        cursor: pointer;
+    }
 
 .d_submenu_selected {
     background-color: rgba(20, 22, 24, 1);
     color: #fff;
 }
 
-.d_submenu_selected:hover {
-    background-color: rgba(20, 22, 24, 1);
-    cursor: default;
-}
+    .d_submenu_selected:hover {
+        background-color: rgba(20, 22, 24, 1);
+        cursor: default;
+    }
 
 .btn {
     display: inline-block;
@@ -97,7 +185,8 @@ a {
     height: 50px;
 }
 
-.btn:hover {
-    opacity: 0.7;
-    box-shadow: 0px 0px 20px#fff;
-}
+    .btn:hover {
+        opacity: 0.7;
+        box-shadow: 0px 0px 20px#fff;
+    }
+

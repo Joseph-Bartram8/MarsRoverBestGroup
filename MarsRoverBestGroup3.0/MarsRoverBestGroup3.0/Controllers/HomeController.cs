@@ -20,7 +20,8 @@ namespace MarsRoverBestGroup3._0.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            ViewData["Test"] = "Test";
+            return View(new HomepageViewModel());
         }
 
         public IActionResult Gallery()
@@ -39,6 +40,22 @@ namespace MarsRoverBestGroup3._0.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        
+
+
+        [HttpPost]
+        public IActionResult ConvertEarthDate(Dates dates)
+        {
+
+            
+            var marsDate = DateConverter.EarthToMarsDate(dates.earthInputDate);
+
+
+            var convertedDate = new HomepageViewModel { marsOutputDate= marsDate };
+
+
+            return View("Index", convertedDate);
+        }
+
+
     }
 }
