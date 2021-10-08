@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 
 namespace MarsRoverBestGroup3._0.Models
 {
-    public class PostDateModel
+    public class GalleryPostModel
     {
         public DateTime date { get; set; }
+        public string rover { get; set; }
     }
 }
