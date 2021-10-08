@@ -11,53 +11,35 @@
     <link rel="stylesheet" href="/css/Index.css">
 </head>
 <body class="container">
-    <div id="index-flex">
-        <div id="index-welcome">
-            <div id="welcome-container">
-                <h1 id="header">welcome to mars</h1>
-                <p id="motto">we got:</p>
+    <section class="s_container">
+        <div id="index-flex">
+            <div id="index-welcome">
+                <div id="welcome-container">
+                    <h1 id="header">welcome to mars</h1>
+                    <p id="motto">we got:</p>
+                </div>
+            </div>
+            <div id="index-previews">
+                <div style="background-image: url(/Images/Curiositys-Selfie.jpg)" class="banner-container">
+                    <div class="banner">
+                        <h2 class="preview-title">GALLERY<br />PAGE</h2>
+                    </div>
+                </div>
+                <div style="background-image: url(/Images/marslandscape.jpg);" class="banner-container">
+                    <div class="banner-r">
+                        <h2 class="preview-title">MARS<br />DATA</h2>
+                    </div>
+                </div>
+                <div style="background-image: url(/Images/degu-mouse.jpg)" class="banner-container">
+                    <div class="banner">
+                        <h2 class="preview-title">ANGRY<br />MARTIANS</h2>
+                    </div>
+                </div>
             </div>
         </div>
-        <div id="index-previews">
-            <div style="background-image: url(/Images/Curiositys-Selfie.jpg)" class="banner-container">
-                <div class="banner">
-                    <h2 class="preview-title">GALLERY<br />PAGE</h2>
-                </div>
-            </div>
-            <div style="background-image: url(/Images/marslandscape.jpg);" class="banner-container">
-                <div class="banner-r">
-                    <h2 class="preview-title">MARS<br />DATA</h2>
-                </div>
-            </div>
-            <div style="background-image: url(/Images/degu-mouse.jpg)" class="banner-container">
-                <div class="banner">
-                    <h2 class="preview-title">ANGRY<br />MARTIANS</h2>
-                </div>
-            </div>
         </section>
-        <section class="s_container_inner">
-            <a href="" class="btn">Read More</a>
-        </section>
-
-        <div>
-            <form method="post" action="/Home/ConvertEarthDate" class="d-flex">
-                <input class="form-control me-2" id="earth-date-input" type="date" name="earthInputDate" placeholder="Earth date" aria-label="Earth date" style="text-align: center; margin-top: 10px">
-                <button class="btn btn-outline-danger" id="earth-to-mars-convert" type="submit">Convert to</button>
-                <output class="form-control me-2" id="mars-date-output" for="earth-date-input" aria-label="Mars Sol date" style="text-align: center; margin-top: 10px ">@Model.marsOutputDate</output>
-            </form>
-        </div>
-        <div>
-            <form method="post" action="/Home/ConvertMarsDate"class="d-flex">
-                <input class="form-control me-2" id="mars-date-input" type="text" name="marsInputDate" placeholder="Mars Sol Date" aria-label="Mars Sol Date" style="text-align: center; margin-top: 10px">
-                <button class="btn btn-outline-danger " id ="mars-to-earth-convert" type="submit">Convert to</button>
-                <output class="form-control me-2" id="earth-date-output" for="mars-date-input" aria-label="Earth date" style="text-align: center; margin-top: 10px ">@Model.earthOutputDate (give or take a day)</output>
-            </form>
-        </div>
-
-        
         <div class="d_footer">
 
         </div>
-    </section>
 </body>
 </html>
