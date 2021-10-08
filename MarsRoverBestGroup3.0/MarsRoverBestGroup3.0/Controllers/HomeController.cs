@@ -12,7 +12,7 @@ namespace MarsRoverBestGroup3._0.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
+        private APICall _apiCall = new APICall();
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
@@ -21,12 +21,30 @@ namespace MarsRoverBestGroup3._0.Controllers
         public IActionResult Index()
         {
             ViewData["Test"] = "Test";
+            return View();
+        }
+
+        public IActionResult MarsData()
+        {
             return View(new HomepageViewModel());
         }
 
         public IActionResult Gallery()
         {
-            return View();
+            DateTime default_date = new DateTime(2020, 08, 15);
+            GalleryModel gallery_model = new GalleryModel();
+            gallery_model.date = default_date;
+            gallery_model.photos = _apiCall.GetMarsRoverPhotosByDateAndRover(default_date);
+            return View(gallery_model);
+        }
+
+        [HttpPost]
+        public ActionResult Gallery(PostDateModel date_model)
+        {
+            GalleryModel gallery_model = new GalleryModel();
+            gallery_model.date = date_model.date;
+            gallery_model.photos = _apiCall.GetMarsRoverPhotosByDateAndRover(date_model.date);
+            return View(gallery_model);
         }
 
         public IActionResult Privacy()
@@ -53,7 +71,7 @@ namespace MarsRoverBestGroup3._0.Controllers
             var convertedDate = new HomepageViewModel { marsOutputDate= marsDate };
 
 
-            return View("Index", convertedDate);
+            return View("Marsdata", convertedDate);
         }
 
        
@@ -61,15 +79,15 @@ namespace MarsRoverBestGroup3._0.Controllers
         [HttpPost]
         public IActionResult ConvertMarsDate(Dates dates)
         {
-
-
+        
+        
             var earthDate = DateConverter.MarsToEarthDate(dates.marsInputDate);
 
 
             var convertedDate = new HomepageViewModel { earthOutputDate = earthDate };
 
 
-            return View("Index", convertedDate);
+            return View("MarsData", convertedDate);
         }
     }
 }

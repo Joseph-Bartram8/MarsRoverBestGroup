@@ -9,7 +9,6 @@ namespace MarsRoverBestGroup3._0.Models
 
     public static class DateConverter
     {
-       
         public static double earthConversionRate = 86400.0 / 88775.0;
         public static int EarthToMarsDate(DateTime earthDate)
         {
@@ -17,7 +16,6 @@ namespace MarsRoverBestGroup3._0.Models
             int MarsSolDate = (int)(differenceInDays * earthConversionRate);
             return MarsSolDate;
         }
-        
         public static DateTime MarsToEarthDate(double marsDate)
         {
             double secondsSinceSolOrigin = marsDate * 88775.0;
@@ -72,6 +70,3 @@ namespace MarsRoverBestGroup3._0.Models
         }
     }
 }
-       
-    
-
