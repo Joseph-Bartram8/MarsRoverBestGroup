@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +7,7 @@
     <title>@ViewData["Title"] - Mars Rover Adventures</title>
     <link rel="stylesheet" href="/css/Menu.css">
     <link rel="stylesheet" href="/css/Style.css">
+    <link rel="stylesheet" href="/css/Index.css">
     <script src="/js/menu.js"></script>
     <script src="/js/Gallery.js"></script>
     <title>Home Page</title>
@@ -24,6 +27,18 @@
                 </div>
             </div>
         </div>
+        <nav class="navbar navbar-light">
+            <div class=" container-fluid">
+                <div id="index-welcome">
+                    <span id="earth-date-display"> Earth Date: <br />@DateTime.Now.ToShortDateString()</span>
+                    <div id="welcome-container">
+                        <h1 id="header">welcome to mars</h1>
+                        <p id="motto">we got:</p>
+                    </div>
+                    <span id="mars-date-display"> Mars Sol Date: <br />@DateConverter.CurrentMarsDate()</span>
+                </div>
+            </div>
+        </nav>
         <main role="main" class="pb-3">
             @RenderBody()
         </main>

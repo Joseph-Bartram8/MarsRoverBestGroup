@@ -24,6 +24,11 @@ namespace MarsRoverBestGroup3._0.Models
             return earthDate;
         }
 
+        public static int CurrentMarsDate()
+        {
+            return  EarthToMarsDate(DateTime.Now);
+            
+        }
         //the time the different rovers have been on mars 
 
 

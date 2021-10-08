@@ -74,6 +74,8 @@ namespace MarsRoverBestGroup3._0.Controllers
             return View("Marsdata", convertedDate);
         }
 
+       
+
         [HttpPost]
         public IActionResult ConvertMarsDate(Dates dates)
         {
