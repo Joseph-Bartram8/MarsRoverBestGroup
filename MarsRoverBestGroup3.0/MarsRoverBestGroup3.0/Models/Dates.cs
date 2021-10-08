@@ -20,9 +20,5 @@ namespace MarsRoverBestGroup3._0.Models
         public DateTime earthOutputDate { get; set; }
     }
 
-    //public class LayoutViewModel
-    //{
-    //    public double currentMarsOutputDate { get; set; }
-    //    //public DateTime earthOutputDate { get; set; }
-    //}
+    
 }
