@@ -1,0 +1,22 @@
+﻿.s_container_inner {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    padding-left: 230px;
+    flex: 1;
+}
+
+.inputBox {
+    margin-bottom: 20px;
+    font-size: 18px;
+    width: 300px;
+    height: 34px;
+}
+
+.contact-form textarea {
+    margin-bottom: 20px;
+    font-size: 18px;
+    width: 300px;
+}
