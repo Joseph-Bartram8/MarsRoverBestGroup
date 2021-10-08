@@ -34,11 +34,11 @@ namespace MarsRoverBestGroup3._0.Controllers
         }
 
         [HttpPost]
-        public ActionResult Gallery(PostDateModel date_model)
+        public ActionResult Gallery(GalleryPostModel post_model)
         {
             GalleryModel gallery_model = new GalleryModel();
-            gallery_model.date = date_model.date;
-            gallery_model.photos = _apiCall.GetMarsRoverPhotosByDateAndRover(date_model.date);
+            gallery_model.date = post_model.date;
+            gallery_model.photos = _apiCall.GetMarsRoverPhotosByDateAndRover(post_model.date, post_model.rover);
             return View(gallery_model);
         }
 
