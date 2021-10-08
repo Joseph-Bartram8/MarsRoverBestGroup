@@ -21,6 +21,11 @@ namespace MarsRoverBestGroup3._0.Controllers
         public IActionResult Index()
         {
             ViewData["Test"] = "Test";
+            return View();
+        }
+
+        public IActionResult MarsData()
+        {
             return View(new HomepageViewModel());
         }
 
@@ -53,9 +58,21 @@ namespace MarsRoverBestGroup3._0.Controllers
             var convertedDate = new HomepageViewModel { marsOutputDate= marsDate };
 
 
-            return View("Index", convertedDate);
+            return View("Marsdata", convertedDate);
         }
 
+        [HttpPost]
+        public IActionResult ConvertMarsDate(Dates dates)
+        {
 
+
+            var earthDate = DateConverter.MarsToEarthDate(dates.marsInputDate);
+
+
+            var convertedDate = new HomepageViewModel { earthOutputDate = earthDate };
+
+
+            return View("MarsData", convertedDate);
+        }
     }
 }
