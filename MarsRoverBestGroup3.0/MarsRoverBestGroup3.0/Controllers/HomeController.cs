@@ -26,7 +26,20 @@ namespace MarsRoverBestGroup3._0.Controllers
 
         public IActionResult Gallery()
         {
-            return View();
+            DateTime default_date = new DateTime(2020, 08, 15);
+            GalleryModel gallery_model = new GalleryModel();
+            gallery_model.date = default_date;
+            gallery_model.photos = APICall.GetMarsRoverPhotosByDate(default_date);
+            return View(gallery_model);
+        }
+
+        [HttpPost]
+        public ActionResult Gallery(PostDateModel date_model)
+        {
+            GalleryModel gallery_model = new GalleryModel();
+            gallery_model.date = date_model.date;
+            gallery_model.photos = APICall.GetMarsRoverPhotosByDate(date_model.date);
+            return View(gallery_model);
         }
 
         public IActionResult Privacy()

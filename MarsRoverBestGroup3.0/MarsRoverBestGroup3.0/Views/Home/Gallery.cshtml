@@ -1,8 +1,10 @@
-﻿<head>
-    <title>Gallery</title>
+﻿@model MarsRoverBestGroup3._0.Models.GalleryModel;
 
+<head>
+    <title>Gallery</title>
     <link rel="stylesheet" href="/css/Gallery.css">
 </head>
+
 <body>
     <div id="overlayClose" class="menu-wrap2" style="display: none;">
         <input id="menu_button2" type="checkbox" class="toggler2" onclick="closeOverlay();">
@@ -19,7 +21,7 @@
                         </section>
                         <section>
                             <div class="d_image_Gallery">
-                                @foreach (var photo in APICall.GetMarsRoverPhotosByDate(DateTime.Now.AddDays(-(int)DateTime.Now.DayOfWeek - 3)))
+                                @foreach (var photo in Model.photos)
                                 {
                                     <img class="Gallery_image" src=@photo.ImgSrc>
                                 }
@@ -57,6 +59,14 @@
         </section>
         <section class="s_container_inner s_container_inner2">
             <div id="copyGallery" class="d_Gallery_copy d_Gallery_copy_selected">
+                <p>current query date = @Model.date</p>
+                @using (Html.BeginForm("Gallery", "Home", FormMethod.Post))
+                {
+                    <input type="date" id="start" name="date"
+                           value="2018-07-22"
+                           min="2015-01-01" max="2021-12-31">
+                    <input type="submit" />
+                }
                 <section class="s_Gallery_images">
                     <!--First portfolio image-->
                     <div onclick="showCard1();" class="Gallery_outer_div">
