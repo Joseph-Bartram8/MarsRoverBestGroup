@@ -32,6 +32,7 @@ namespace MarsRoverBestGroup3._0
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                DotNetEnv.Env.Load();
             }
             else
             {
