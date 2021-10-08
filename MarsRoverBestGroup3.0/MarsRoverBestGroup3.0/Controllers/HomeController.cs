@@ -12,7 +12,7 @@ namespace MarsRoverBestGroup3._0.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
+        private APICall _apiCall = new APICall();
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
@@ -29,7 +29,7 @@ namespace MarsRoverBestGroup3._0.Controllers
             DateTime default_date = new DateTime(2020, 08, 15);
             GalleryModel gallery_model = new GalleryModel();
             gallery_model.date = default_date;
-            gallery_model.photos = APICall.GetMarsRoverPhotosByDate(default_date);
+            gallery_model.photos = _apiCall.GetMarsRoverPhotosByDateAndRover(default_date);
             return View(gallery_model);
         }
 
@@ -38,7 +38,7 @@ namespace MarsRoverBestGroup3._0.Controllers
         {
             GalleryModel gallery_model = new GalleryModel();
             gallery_model.date = date_model.date;
-            gallery_model.photos = APICall.GetMarsRoverPhotosByDate(date_model.date);
+            gallery_model.photos = _apiCall.GetMarsRoverPhotosByDateAndRover(date_model.date);
             return View(gallery_model);
         }
 
