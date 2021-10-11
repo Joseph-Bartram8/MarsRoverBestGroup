@@ -12,24 +12,20 @@
         </div>
         <section class="s_container_inner">
             <div>
-                <div>
-                    <form method="post" action="/Home/ConvertEarthDate" class="d-flex">
-                        <input class="inputBox" id="earth-date-input" type="date" name="earthInputDate" placeholder="Earth date" aria-label="Earth date" style="text-align: center; margin-top: 10px">
-                        <button class="btn btn-outline-danger" id="earth-to-mars-convert" type="submit">Convert to</button>
-                        <output class="form-control me-2" id="mars-date-output" for="earth-date-input" aria-label="Mars Sol date" style="text-align: center; margin-top: 10px ">@Model.marsOutputDate</output>
-                    </form>
-                </div>
-                <div>
-                    <form method="post" action="/Home/ConvertMarsDate" class="d-flex">
-                        <input class="inputBox" id="mars-date-input" type="text" name="marsInputDate" placeholder="Mars Sol Date" aria-label="Mars Sol Date" style="text-align: center; margin-top: 10px">
-                        <button class="btn btn-outline-danger " id="mars-to-earth-convert" type="submit">Convert to</button>
-                        <output class="form-control me-2" id="earth-date-output" for="mars-date-input" aria-label="Earth date" style="text-align: center; margin-top: 10px ">@Model.earthOutputDate.ToShortDateString() (give or take a day)</output>
-                    </form>
-                </div>
+                <form method="post" action="/Home/ConvertEarthDate" class="d-flex">
+                    <input class="inputBox" id="earth-date-input" type="date" name="earthInputDate" placeholder="Earth date" aria-label="Earth date" style="text-align: center; margin-top: 10px">
+                    <button class="btn btn-outline-danger" id="earth-to-mars-convert" type="submit">Convert to</button>
+                    <output class="form-control me-2" id="mars-date-output" for="earth-date-input" aria-label="Mars Sol date" style="text-align: center; margin-top: 10px ">@Model.marsOutputDate </output>
+                    <p>@Model.DateErrorMessage</p>
+                </form>
             </div>
-            <div class="d_MarsFactBox">
-                fun facts about mars:
-                <p id="Facts">facts</p>
+            <div >
+                <form method="post" action="/Home/ConvertMarsDate" class="d-flex">
+                    <input class="inputBox" id="mars-date-input" type="text" name="marsInputDate" placeholder="Mars Sol Date" aria-label="Mars Sol Date" style="text-align: center; margin-top: 10px">
+                    <button class="btn btn-outline-danger " id="mars-to-earth-convert" type="submit">Convert to</button>
+                    <output class="form-control me-2" id="earth-date-output" for="mars-date-input" aria-label="Earth date" style="text-align: center; margin-top: 10px ">@Model.earthOutputDate.ToShortDateString() (give or take a day)</output>
+                    <p>@Model.ParameterErrorMessage</p>
+                </form>
             </div>
         </section>
     </section>
