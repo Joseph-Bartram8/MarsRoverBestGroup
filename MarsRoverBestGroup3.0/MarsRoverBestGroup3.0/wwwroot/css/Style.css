@@ -1,5 +1,5 @@
 ﻿:root {
-    --primary-color: rgba(13, 110, 139, 0.75);
+    --primary-color: darkgrey;
     --overlay-color: rgba(24, 39, 51, 0.85);
     --menu-speed: 0.75s;
 }
@@ -9,14 +9,14 @@
     margin: 0;
     box-sizing: border-box;
     font-family: "Proxima Nova", "SF Pro", "Roboto", "Open Sans", Helvetica;
-    color: white;
+    color: black;
     font-size: 18px;
 }
 
 html {
     height: 100%;
     margin: 0px;
-    background: url("../images/background.jpg") no-repeat center center fixed;
+    background: url("~/Images/dagu2.jpg") no-repeat center center fixed;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -42,10 +42,6 @@ p {
     padding: 10px 0 10px 0;
 }
 
-a {
-    color: #b6d2dd;
-}
-
 .s_container {
     display: flex;
     min-height: 100vh;
@@ -54,7 +50,7 @@ a {
 }
 
 .d_header {
-    padding: 100px 0 20px 0;
+    padding: 10px 0 20px 0;
     text-align: center;
 }
 
@@ -87,7 +83,7 @@ a {
     }
 
 .d_submenu_selected {
-    background-color: rgba(20, 22, 24, 1);
+    background-color: darkslategrey;
     color: #fff;
 }
 
@@ -117,7 +113,7 @@ footer {
     display: flex;
     width: 100vw;
     position: fixed;
-    background-color: rgba(0,0,0,1);
+    background-color: darkslategrey;
     bottom: 0;
     padding: 2px 1em 2px 1em;
     align-items: center;
@@ -128,7 +124,7 @@ footer {
     display: flex;
 }
 #earth-date-display {
-    color: aquamarine;
+    color: black;
     text-align: center;
     font-family: "Proxima Nova", "SF Pro", "Roboto", "Open Sans", Helvetica;
     background-color: dodgerblue;
@@ -138,7 +134,7 @@ footer {
 }
 
 #mars-date-display {
-    color: white;
+    color: black;
     text-align: center;
     font-family: "Proxima Nova", "SF Pro", "Roboto", "Open Sans", Helvetica;
     background-color: indianred;
@@ -152,4 +148,8 @@ footer {
     color: black;
     justify-content: space-around;
     margin: 1em 0 1em 0;
+}
+
+.ListStuff {
+    display: inline;
 }
