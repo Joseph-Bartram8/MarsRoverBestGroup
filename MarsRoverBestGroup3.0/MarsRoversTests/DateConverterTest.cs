@@ -8,7 +8,26 @@ namespace MarsRoversTests
 {
     public class DateConverterTest
     {
-       
+        [Test]
+        public void EarthToMarsSolTest()
+        {
+            DateTime testdate = new DateTime(2021, 10, 11);
+            int expectedSol = 52532;
+
+            var result = DateConverter.EarthToMarsDate(testdate);
+
+            Assert.AreEqual(result, expectedSol);
+        }
+        [Test]
+        public void MarsToEarthSolTest()
+        {
+            double testSol = 52532.8;
+            DateTime expectedDate = new DateTime(2021, 10, 11);
+
+            var result = DateConverter.MarsToEarthDate(testSol);
+
+            Assert.AreEqual(result, expectedDate);
+        }
         [Test]
         public void CuriositySolTest()
         {
