@@ -75,7 +75,7 @@ namespace MarsRoverBestGroup3._0.Controllers
             }
             catch (ArgumentException exception)
             {
-                var dateError = new HomepageViewModel { ErrorMsg = exception.Message };
+                var dateError = new HomepageViewModel { DateErrorMessage = exception.Message };
                 return View("Marsdata", dateError);
 
             }
@@ -87,15 +87,18 @@ namespace MarsRoverBestGroup3._0.Controllers
         [HttpPost]
         public IActionResult ConvertMarsDate(Dates dates)
         {
-        
-        
-            var earthDate = DateConverter.MarsToEarthDate(dates.marsInputDate);
+            try
+            {
+                var earthDate = DateConverter.MarsToEarthDate(dates.marsInputDate);
+                var convertedDate = new HomepageViewModel { earthOutputDate = earthDate };
+                return View("MarsData", convertedDate);
+            }
+            catch(ArgumentOutOfRangeException outOfRange)
+            {
+                var dateError = new HomepageViewModel { ParameterErrorMessage = outOfRange.Message };
+                return View("Marsdata", dateError);
+            }
 
-
-            var convertedDate = new HomepageViewModel { earthOutputDate = earthDate };
-
-
-            return View("MarsData", convertedDate);
         }
     }
 }

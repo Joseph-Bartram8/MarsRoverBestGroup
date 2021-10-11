@@ -16,6 +16,7 @@ namespace MarsRoverBestGroup3._0.Models
         public double marsOutputDate { get; set; }
         public DateTime earthOutputDate { get; set; }
 
-        public string ErrorMsg { get;  set; }
+        public string DateErrorMessage { get;  set; }
+        public string ParameterErrorMessage { get; set; }
     }
 }
