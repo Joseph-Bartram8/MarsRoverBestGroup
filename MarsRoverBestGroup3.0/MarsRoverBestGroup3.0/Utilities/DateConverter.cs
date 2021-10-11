@@ -19,8 +19,8 @@ namespace MarsRoverBestGroup3._0.Models
         public static DateTime MarsToEarthDate(double marsDate)
         {
             double secondsSinceSolOrigin = marsDate * 88775.0;
-            DateTime earthDateTime = new DateTime(1873, 12, 29, 12, 0, 0).AddSeconds(Math.Floor(secondsSinceSolOrigin));
-            var earthDate =(earthDateTime.Date);
+            DateTime earthDateTime = new DateTime(1873, 12, 29, 12, 0, 0).AddSeconds(secondsSinceSolOrigin);
+            var earthDate =earthDateTime.Date;
             return earthDate;
         }
 
