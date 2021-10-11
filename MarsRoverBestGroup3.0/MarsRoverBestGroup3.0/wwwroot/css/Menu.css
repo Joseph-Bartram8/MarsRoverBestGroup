@@ -22,19 +22,19 @@
     opacity: 0;
 }
 
-.menu-wrap .hamburger {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    width: 60px;
-    height: 60px;
-    padding: 1rem;
-    background-color:black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+    .menu-wrap .hamburger {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        width: 60px;
+        height: 60px;
+        padding: 1rem;
+        background-color: darkslategrey;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
 /* Hamburger line */
 .menu-wrap .hamburger > div {
@@ -111,7 +111,7 @@
 }
 
 .menu-wrap .menu > div {
-    background: rgba(0,0,0,0.9);
+    background: var(--overlay-color);
     border-radius: 50%;
     width: 200vw;
     height: 200vw;
