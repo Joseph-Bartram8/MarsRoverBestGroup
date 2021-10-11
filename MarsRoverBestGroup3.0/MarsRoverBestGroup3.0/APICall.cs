@@ -15,7 +15,8 @@ namespace MarsRoverBestGroup3._0
         private RestClient _restClient;
         public APICall()
         {
-            _apiKey = Environment.GetEnvironmentVariable("API_KEY");
+            //_apiKey = Environment.GetEnvironmentVariable("API_KEY");
+            _apiKey = ConfigurationManager.AppSettings["APIKey"];
             _restClient = new RestClient("https://api.nasa.gov");
         }
         public APOD AstronomyPhotoOfTheDay() 
@@ -36,6 +37,10 @@ namespace MarsRoverBestGroup3._0
             }
             request.AddQueryParameter("api_key", _apiKey);
             var response = _restClient.Get<MarsRoverPhotosResponse>(request);
+            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            {
+                throw new Exception("API Call invalid");
+            }
             return response.Data.photos;
         }
     }
