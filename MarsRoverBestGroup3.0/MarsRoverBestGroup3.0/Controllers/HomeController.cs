@@ -64,14 +64,22 @@ namespace MarsRoverBestGroup3._0.Controllers
         public IActionResult ConvertEarthDate(Dates dates)
         {
 
+            try
+            {
+                var marsDate = DateConverter.EarthToMarsDate(dates.earthInputDate);
+
+                var convertedDate = new HomepageViewModel { marsOutputDate = marsDate };
+
+                return View("Marsdata", convertedDate);
+
+            }
+            catch (ArgumentException exception)
+            {
+                var dateError = new HomepageViewModel { ErrorMsg = exception.Message };
+                return View("Marsdata", dateError);
+
+            }
             
-            var marsDate = DateConverter.EarthToMarsDate(dates.earthInputDate);
-
-
-            var convertedDate = new HomepageViewModel { marsOutputDate= marsDate };
-
-
-            return View("Marsdata", convertedDate);
         }
 
        

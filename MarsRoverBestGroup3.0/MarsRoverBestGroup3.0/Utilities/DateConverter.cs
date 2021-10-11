@@ -12,9 +12,20 @@ namespace MarsRoverBestGroup3._0.Models
         public static double earthConversionRate = 86400.0 / 88775.0;
         public static int EarthToMarsDate(DateTime earthDate)
         {
-            int differenceInDays = (int)earthDate.Subtract(new DateTime(1873, 12, 29)).TotalDays;
-            int MarsSolDate = (int)(differenceInDays * earthConversionRate);
-            return MarsSolDate;
+           
+           if (earthDate >= new DateTime(1873, 12, 29)){
+                int differenceInDays = (int)earthDate.Subtract(new DateTime(1873, 12, 29)).TotalDays;
+                int MarsSolDate = (int)(differenceInDays * earthConversionRate);
+                return MarsSolDate;
+
+            }
+            else
+            {
+                throw new ArgumentException("Make sure date is after 29/12/1873");
+            }
+                
+
+            
         }
         public static DateTime MarsToEarthDate(double marsDate)
         {
