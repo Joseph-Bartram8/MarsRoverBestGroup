@@ -70,9 +70,6 @@ namespace MarsRoverBestGroup3._0.Controllers
         [HttpPost]
         public IActionResult ConvertEarthDate(Dates dates)
         {
-            var marsDate = DateConverter.EarthToMarsDate(dates.earthInputDate);
-            var convertedDate = new HomepageViewModel { marsOutputDate= marsDate };
-            return View("Marsdata", convertedDate);
             try
             {
                 var marsDate = DateConverter.EarthToMarsDate(dates.earthInputDate);
@@ -89,9 +86,6 @@ namespace MarsRoverBestGroup3._0.Controllers
         [HttpPost]
         public IActionResult ConvertMarsDate(Dates dates)
         {
-            var earthDate = DateConverter.MarsToEarthDate(dates.marsInputDate);
-            var convertedDate = new HomepageViewModel { earthOutputDate = earthDate };
-            return View("MarsData", convertedDate);
             try
             {
                 var earthDate = DateConverter.MarsToEarthDate(dates.marsInputDate);
