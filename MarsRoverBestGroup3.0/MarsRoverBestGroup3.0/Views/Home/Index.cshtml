@@ -1,23 +1,14 @@
-@{
-    ViewData["Title"] = "Home Page";
-}
 @model HomepageViewModel;
 
-
-
 <html>
-
-<head>
-    <link rel="stylesheet" href="/css/Index.css">
-</head>
-<body class="container">
-    <section class="s_container">
+    <head>
+        <link rel="stylesheet" href="/css/Index.css">
+    </head>
+    <body>
         <div id="index-flex">
-            
             <div id="index-previews">
                 <a class="linksToPages" href="../Home/Gallery">
                     <div style="background-image: url(/Images/Curiositys-Selfie.jpg)" class="banner-container">
-
                         <div class="banner">
                             <h1 class="preview-title">GALLERY<br />PAGE</h1>
                         </div>
@@ -29,20 +20,15 @@
                             <h2 class="preview-title">MARS<br />DATA</h2>
                         </div>
                     </div>
-                </a>
-                <a class="linksToPages" href="#">
+              </a>
+                <a href="linksToPages">
                     <div style="background-image: url(/Images/degu-mouse.jpg)" class="banner-container">
                         <div class="banner">
                             <h2 class="preview-title">ANGRY<br />MARTIANS</h2>
                         </div>
                     </div>
                 </a>
-                    
             </div>
         </div>
-    </section>
-        <div class="d_footer">
-
-        </div>
-</body>
+    </body>
 </html>
