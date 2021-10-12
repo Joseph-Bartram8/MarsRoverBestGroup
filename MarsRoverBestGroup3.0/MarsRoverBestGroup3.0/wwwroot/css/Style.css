@@ -83,7 +83,7 @@ p {
     }
 
 .d_submenu_selected {
-    background-color: darkslategrey;
+    background-color: rgba(0,0,0,0.9);
     color: #fff;
 }
 
