@@ -15,8 +15,7 @@ namespace MarsRoverBestGroup3._0
         private RestClient _restClient;
         public APICall()
         {
-            //_apiKey = Environment.GetEnvironmentVariable("API_KEY");
-            _apiKey = ConfigurationManager.AppSettings["APIKey"];
+            _apiKey = Environment.GetEnvironmentVariable("API_KEY");
             _restClient = new RestClient("https://api.nasa.gov");
         }
         public APOD AstronomyPhotoOfTheDay() 
