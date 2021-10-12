@@ -17,11 +17,13 @@
         <div class="hamburger"><div></div></div>
         <div class="menu" onclick="menuClose()">
             <div>
-                <ul>
-                    <li>@Html.ActionLink("Home Page", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Gallery Page", "Gallery", "Home")</li>
-                    <li>@Html.ActionLink("Mars Data Page", "MarsData", "Home")</li>
-                </ul>
+                <div>
+                    <ul>
+                        <li>@Html.ActionLink("Home Page", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Gallery Page", "Gallery", "Home")</li>
+                        <li>@Html.ActionLink("Mars Data Page", "MarsData", "Home")</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
@@ -40,13 +42,13 @@
             @RenderBody()
         </main>
         <footer>
-            <p>Mars Rover hub page designed by Communism :)</p>
+            <p style="font-weight: bold;">Mars Rover hub page designed by Communism :)</p>
             <div id="footer-nav">
                 <ul>
                     <li class="ListStuff">@Html.ActionLink("Home Page", "Index", "Home")</li>
                     <li class="ListStuff">@Html.ActionLink("Gallery Page", "Gallery", "Home")</li>
                     <li class="ListStuff">@Html.ActionLink("Mars Data Page", "MarsData", "Home")</li>
-                </ul>|
+                </ul>
             </div>
         </footer>
     </div>

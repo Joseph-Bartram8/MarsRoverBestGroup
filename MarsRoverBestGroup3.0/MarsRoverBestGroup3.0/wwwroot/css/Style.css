@@ -9,15 +9,14 @@
     margin: 0;
     box-sizing: border-box;
     font-family: "Proxima Nova", "SF Pro", "Roboto", "Open Sans", Helvetica;
-    color: black;
+    color: white;
     font-size: 18px;
 }
 
 html {
     height: 100%;
     margin: 0px;
-    background: url("~/Images/dagu2.jpg") no-repeat center center fixed;
-    background-size: cover;
+    background: url(~/Images/dagu2.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -113,7 +112,7 @@ footer {
     display: flex;
     width: 100vw;
     background-color: rgba(0,0,0,1);
-    bottom: -30px;
+    bottom: -10px;
     background-color: darkslategrey;
     padding: 2px 1em 2px 1em;
     align-items: center;
@@ -129,7 +128,7 @@ footer:hover {
     display: flex;
 }
 nav {
-    background-color: rgba(255,255,255,0.9);
+    background-color: darkslategrey;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -141,7 +140,7 @@ nav {
     position: relative;
 }
     nav * {
-        color: black !important;
+        color: white !important;
     }
 #nav-title {
     line-height: 0.6;
@@ -152,7 +151,7 @@ nav {
 }
 #nav-clocks p {
     letter-spacing: -1px;
-    font-weight: 300;
+    font-weight: bold;
     font-size: 0.8em;
 }
 #nav-clocks p strong {
@@ -174,7 +173,8 @@ main {
 }
 #body-wrapper {
     height: 100vh;
-    overflow-y:auto;
+    overflow-y: auto;
+}
 .ListStuff {
     display: inline;
 }
