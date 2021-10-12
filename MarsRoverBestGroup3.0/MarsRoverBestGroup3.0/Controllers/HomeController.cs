@@ -40,6 +40,7 @@ namespace MarsRoverBestGroup3._0.Controllers
             GalleryModel galleryModel = new GalleryModel();
             galleryModel.date = defaultDate;
             galleryModel.rover = "curiosity";
+            galleryModel.camera = "all";
             galleryModel.photos = _apiCall.GetMarsRoverPhotosByDateAndRover(defaultDate);
             return View(galleryModel);
         }
@@ -52,7 +53,8 @@ namespace MarsRoverBestGroup3._0.Controllers
             GalleryModel galleryModel = new GalleryModel();
             galleryModel.date = postModel.date;
             galleryModel.rover = postModel.rover;
-            galleryModel.photos = _apiCall.GetMarsRoverPhotosByDateAndRover(postModel.date, postModel.rover);
+            galleryModel.camera = postModel.camera;
+            galleryModel.photos = _apiCall.GetMarsRoverPhotosByDateAndRover(postModel.date, postModel.rover, postModel.camera);
             return View(galleryModel);
         }
 

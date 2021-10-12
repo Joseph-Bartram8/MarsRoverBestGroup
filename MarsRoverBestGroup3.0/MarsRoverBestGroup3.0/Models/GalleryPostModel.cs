@@ -9,5 +9,6 @@ namespace MarsRoverBestGroup3._0.Models
     {
         public DateTime date { get; set; }
         public string rover { get; set; }
+        public string camera { get; set; }
     }
 }
