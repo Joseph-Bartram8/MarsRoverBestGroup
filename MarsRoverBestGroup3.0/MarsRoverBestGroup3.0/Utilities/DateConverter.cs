@@ -14,9 +14,9 @@ namespace MarsRoverBestGroup3._0.Models
         {
            
            if (earthDate >= new DateTime(1873, 12, 29)){
-                int differenceInDays = (int)earthDate.Subtract(new DateTime(1873, 12, 29)).TotalDays;
-                int MarsSolDate = (int)(differenceInDays * earthConversionRate);
-                return MarsSolDate;
+                double differenceInDays = earthDate.Subtract(new DateTime(1873, 12, 29)).TotalDays;
+                double MarsSolDate = (differenceInDays * earthConversionRate);
+                return (int)Math.Floor(MarsSolDate);
 
             }
             else
@@ -37,7 +37,7 @@ namespace MarsRoverBestGroup3._0.Models
 
         public static int CurrentMarsDate()
         {
-            return  EarthToMarsDate(DateTime.Now);
+            return  EarthToMarsDate(DateTime.Now.Date);
             
         }
         //the time the different rovers have been on mars 
