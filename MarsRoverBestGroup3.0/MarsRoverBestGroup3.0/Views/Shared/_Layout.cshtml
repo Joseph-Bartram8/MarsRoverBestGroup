@@ -12,35 +12,31 @@
     <title>Home Page</title>
 </head>
 <body>
-    <section class="s_container">
-        <div class="menu-wrap">
-            <input id="menu_button" type="checkbox" class="toggler">
-            <div class="hamburger"><div></div></div>
-            <div class="menu" onclick="menuClose()">
-                <div>
-                    <div>
-                        <ul>
-                            <li>@Html.ActionLink("Home Page", "Index", "Home")</li>
-                            <li>@Html.ActionLink("Gallery Page", "Gallery", "Home")</li>
-                            <li>@Html.ActionLink("Mars Data Page", "MarsData", "Home")</li>
-                        </ul>
-                    </div>
-                </div>
+    <div class="menu-wrap">
+        <input id="menu_button" type="checkbox" class="toggler">
+        <div class="hamburger"><div></div></div>
+        <div class="menu" onclick="menuClose()">
+            <div>
+                <ul>
+                    <li>@Html.ActionLink("Home Page", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Gallery Page", "Gallery", "Home")</li>
+                    <li>@Html.ActionLink("Mars Data Page", "MarsData", "Home")</li>
+                </ul>
             </div>
         </div>
-        <nav class="navbar navbar-light">
-            <div class=" container-fluid">
-                <div id="index-welcome">
-                    <span id="earth-date-display"> Earth Date: <br />@DateTime.Now.ToShortDateString()</span>
-                    <div id="welcome-container">
-                        <h1 id="header">welcome to mars</h1>
-                        <p id="motto">we got:</p>
-                    </div>
-                    <span id="mars-date-display"> Mars Sol Date: <br />@DateConverter.CurrentMarsDate()</span>
-                </div>
+    </div>
+    <div id="body-wrapper">
+        <nav>
+            <div id="nav-title">
+                <h1 id="header">@ViewBag.Title</h1>
+                <p id="motto">@ViewBag.Motto</p>
+            </div>
+            <div id="nav-clocks">
+                <p>EARTH DATE: <strong>@DateTime.Now.ToShortDateString()</strong></p>
+                <p>MARS SOL DATE: <strong>@DateConverter.CurrentMarsDate()</strong></p>
             </div>
         </nav>
-        <main role="main" class="pb-3">
+        <main role="main">
             @RenderBody()
         </main>
         <footer>
@@ -53,6 +49,6 @@
                 </ul>|
             </div>
         </footer>
-    </section>
+    </div>
 </body>
 </html>
