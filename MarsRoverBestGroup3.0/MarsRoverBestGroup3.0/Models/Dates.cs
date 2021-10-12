@@ -18,5 +18,7 @@ namespace MarsRoverBestGroup3._0.Models
 
         public string DateErrorMessage { get;  set; }
         public string ParameterErrorMessage { get; set; }
+
+        public APOD apod { get; set; }
     }
 }

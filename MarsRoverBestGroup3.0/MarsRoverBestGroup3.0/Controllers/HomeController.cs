@@ -29,7 +29,9 @@ namespace MarsRoverBestGroup3._0.Controllers
         {
             ViewBag.Title = "welcome to mars";
             ViewBag.Motto = "we got:";
-            return View(new HomepageViewModel());
+            var viewModel = new HomepageViewModel();
+            viewModel.apod = _apiCall.AstronomyPhotoOfTheDay();
+            return View(viewModel);
         }
 
         public IActionResult Gallery()
@@ -58,6 +60,8 @@ namespace MarsRoverBestGroup3._0.Controllers
             return View(galleryModel);
         }
 
+        
+
         public IActionResult Privacy()
         {
             return View();
@@ -75,12 +79,13 @@ namespace MarsRoverBestGroup3._0.Controllers
             try
             {
                 var marsDate = DateConverter.EarthToMarsDate(dates.earthInputDate);
-                var convertedDate = new HomepageViewModel { marsOutputDate = marsDate };
+                var convertedDate = new HomepageViewModel { marsOutputDate = marsDate, apod = _apiCall.AstronomyPhotoOfTheDay() };
+            
                 return View("Marsdata", convertedDate);
             }
             catch (ArgumentException exception)
             {
-                var dateError = new HomepageViewModel { DateErrorMessage = exception.Message };
+                var dateError = new HomepageViewModel { DateErrorMessage = exception.Message, apod = _apiCall.AstronomyPhotoOfTheDay() };
                 return View("Marsdata", dateError);
             }
         }
@@ -91,12 +96,12 @@ namespace MarsRoverBestGroup3._0.Controllers
             try
             {
                 var earthDate = DateConverter.MarsToEarthDate(dates.marsInputDate);
-                var convertedDate = new HomepageViewModel { earthOutputDate = earthDate };
+                var convertedDate = new HomepageViewModel { earthOutputDate = earthDate, apod = _apiCall.AstronomyPhotoOfTheDay() };
                 return View("MarsData", convertedDate);
             }
             catch(ArgumentOutOfRangeException outOfRange)
             {
-                var dateError = new HomepageViewModel { ParameterErrorMessage = outOfRange.Message };
+                var dateError = new HomepageViewModel { ParameterErrorMessage = outOfRange.Message, apod = _apiCall.AstronomyPhotoOfTheDay() };
                 return View("Marsdata", dateError);
             }
         }
