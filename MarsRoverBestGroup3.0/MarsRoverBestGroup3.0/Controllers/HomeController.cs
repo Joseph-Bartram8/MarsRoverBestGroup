@@ -34,26 +34,49 @@ namespace MarsRoverBestGroup3._0.Controllers
 
         public IActionResult Gallery()
         {
-            ViewBag.Title = "gallery";
-            ViewBag.Motto = "get rover pics";
-            DateTime defaultDate = new DateTime(2020, 08, 15);
-            GalleryModel galleryModel = new GalleryModel();
-            galleryModel.date = defaultDate;
-            galleryModel.rover = "curiosity";
-            galleryModel.photos = _apiCall.GetMarsRoverPhotosByDateAndRover(defaultDate);
-            return View(galleryModel);
+            try
+            {
+                ViewBag.Title = "gallery";
+                ViewBag.Motto = "get rover pics";
+                DateTime defaultDate = new DateTime(2020, 08, 15);
+                GalleryModel galleryModel = new GalleryModel();
+                galleryModel.date = defaultDate;
+                galleryModel.rover = "curiosity";
+                galleryModel.photos = _apiCall.GetMarsRoverPhotosByDateAndRover(defaultDate);
+                galleryModel.APIStatus = true;
+                return View(galleryModel);
+
+            }
+            catch 
+            {
+                
+                var ApiError = new GalleryModel { APIStatus = false };
+                return View("Gallery", ApiError);
+            }
+            
         }
 
         [HttpPost]
         public ActionResult Gallery(GalleryPostModel postModel)
         {
-            ViewBag.Title = "gallery";
-            ViewBag.Motto = "get rover pics";
-            GalleryModel galleryModel = new GalleryModel();
-            galleryModel.date = postModel.date;
-            galleryModel.rover = postModel.rover;
-            galleryModel.photos = _apiCall.GetMarsRoverPhotosByDateAndRover(postModel.date, postModel.rover);
-            return View(galleryModel);
+            try
+            {
+                ViewBag.Title = "gallery";
+                ViewBag.Motto = "get rover pics";
+                GalleryModel galleryModel = new GalleryModel();
+                galleryModel.date = postModel.date;
+                galleryModel.rover = postModel.rover;
+                galleryModel.photos = _apiCall.GetMarsRoverPhotosByDateAndRover(postModel.date, postModel.rover);
+                galleryModel.APIStatus = true;
+                return View(galleryModel);
+
+            }
+            catch
+            {
+                var ApiError = new GalleryModel { APIStatus = false };
+                return View("Gallery", ApiError);
+            }
+            
         }
 
         public IActionResult Privacy()
@@ -96,6 +119,11 @@ namespace MarsRoverBestGroup3._0.Controllers
             {
                 var dateError = new HomepageViewModel { ParameterErrorMessage = outOfRange.Message };
                 return View("Marsdata", dateError);
+            }
+            catch ( Exception notANumber)
+            {
+                var inputError = new HomepageViewModel { ParameterErrorMessage = notANumber.Message };
+                return View("Marsdata", inputError);
             }
         }
     }

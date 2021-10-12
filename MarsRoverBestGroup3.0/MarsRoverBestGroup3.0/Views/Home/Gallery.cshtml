@@ -25,10 +25,31 @@
                     <input type="submit" />
                 }
             </div>
-            @foreach (var photo in Model.photos)
+
+            @if (Model.APIStatus)
             {
-                <a href=@photo.ImgSrc target=”_blank”><img class="gallery_image" src=@photo.ImgSrc></a>
+                if (Model.photos.Any())
+                {
+                    foreach (var photo in Model.photos)
+                    {
+                        <a href=@photo.ImgSrc target=”_blank”><img class="gallery_image" src=@photo.ImgSrc></a>
+                    }
+
+                }
+                else
+                {
+                    <span style="color: white">No photos available for this query</span>
+                }
+
             }
+            else
+            {
+                <span style="color: white">Couldn't retrieve any data</span>
+
+            }
+
+
+
         </div>
     </div>
 </body>

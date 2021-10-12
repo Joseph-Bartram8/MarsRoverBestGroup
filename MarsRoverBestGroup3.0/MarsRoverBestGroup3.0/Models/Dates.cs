@@ -8,7 +8,7 @@ namespace MarsRoverBestGroup3._0.Models
     public class Dates
     {
         public DateTime earthInputDate { get; set; }
-        public double marsInputDate { get; set; }
+        public string marsInputDate { get; set; }
     }
 
     public class HomepageViewModel

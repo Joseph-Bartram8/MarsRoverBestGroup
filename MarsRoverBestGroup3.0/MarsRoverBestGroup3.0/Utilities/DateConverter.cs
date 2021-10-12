@@ -27,12 +27,22 @@ namespace MarsRoverBestGroup3._0.Models
 
             
         }
-        public static DateTime MarsToEarthDate(double marsDate)
+        public static DateTime MarsToEarthDate(string marsDate)
         {
-            double secondsSinceSolOrigin = marsDate * 88775.0;
-            DateTime earthDateTime = new DateTime(1873, 12, 29, 12, 0, 0).AddSeconds(secondsSinceSolOrigin);
-            var earthDate = earthDateTime.Date;
-            return earthDate;
+            bool isNumeric = double.TryParse(marsDate, out double number);
+            if (isNumeric)
+            {
+                double secondsSinceSolOrigin = number * 88775.0;
+                DateTime earthDateTime = new DateTime(1873, 12, 29, 12, 0, 0).AddSeconds(secondsSinceSolOrigin);
+                var earthDate = earthDateTime.Date;
+                return earthDate;
+
+            }
+            else
+            {
+                throw new Exception("Mars Sol date has to be a number"); 
+            }
+            
         }
 
         public static int CurrentMarsDate()

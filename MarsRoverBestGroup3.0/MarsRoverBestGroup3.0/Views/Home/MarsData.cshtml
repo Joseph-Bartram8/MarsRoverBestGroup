@@ -23,7 +23,7 @@
             <div >
                 <form method="post" action="/Home/ConvertMarsDate" class="d-flex">
                     <label for="marsInputDate">Select a Mars Sol Date and convert to corresponding Earth Date</label>
-                    <input class="inputBox" id="mars-date-input" type="number" name="marsInputDate" placeholder="Mars Sol Date" aria-label="Mars Sol Date" style="text-align: center; margin-top: 10px">
+                    <input class="inputBox" id="mars-date-input" type="text" name="marsInputDate" placeholder="Mars Sol Date" aria-label="Mars Sol Date" style="text-align: center; margin-top: 10px">
                     <button class="btn btn-outline-danger " id="mars-to-earth-convert" type="submit">Convert</button>
                     
                     <output class="form-control me-2" id="earth-date-output" for="mars-date-input" aria-label="Earth date" style="text-align: center; margin-top: 10px ">@Model.earthOutputDate.ToShortDateString() (give or take a day)</output>
