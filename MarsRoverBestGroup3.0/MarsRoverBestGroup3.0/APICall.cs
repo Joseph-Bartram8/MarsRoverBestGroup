@@ -36,6 +36,10 @@ namespace MarsRoverBestGroup3._0
             }
             request.AddQueryParameter("api_key", _apiKey);
             var response = _restClient.Get<MarsRoverPhotosResponse>(request);
+            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            {
+                throw new Exception("API Call invalid");
+            }
             return response.Data.photos;
         }
     }

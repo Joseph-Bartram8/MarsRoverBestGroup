@@ -2,63 +2,19 @@
 
 <head>
     <link rel="stylesheet" href="/css/Gallery.css">
+    <script src="/js/Gallery.js"></script>
 </head>
 
 <body>
-    <div id="overlayClose" class="menu-wrap2" style="display: none;">
-        <input id="menu_button2" type="checkbox" class="toggler2" onclick="closeOverlay();">
-        <div class="hamburger2"><div></div></div>
-        <div class="menu2" onclick="menuClose();">
-            <div>
-                <div class="title" style="overflow-y: auto;">
-                    <section class="content">
-                        <section class="text">
-                            <div>
-                                stuff to do with images of rover
-                            </div>
-                        </section>
-                        <section>
-                            <div class="d_image_Gallery">
-                                @foreach (var photo in Model.photos)
-                                {
-                                    <img class="Gallery_image" src=@photo.ImgSrc>
-                                }
-                            </div>
-                        </section>
-                    </section>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="overlayClose1" class="menu-wrap2" style="display: none;">
-        <input id="menu_button3" type="checkbox" class="toggler2" onclick="closeOverlay();">
-        <div class="hamburger2"><div></div></div>
-        <div class="menu2" onclick="menuClose();">
-            <div>
-                <div class="title" style="overflow-y: auto;">
-                    <h1 class="title">Converter</h1>
-                    <section class="content">
-                    </section>
-                </div>
-            </div>
-        </div>
-    </div>
-    <section class="s_container">
-        <section class="s_container_inner">
-            <div id="mGallery" class="d_submenu d_submenu_selected" onclick="menuClick(this);">
-                Gallery
-            </div>
-            <div id="mConverter" class="d_submenu" onclick="menuClick(this);">
-                <span class="largeWeb">Converter</span>
-            </div>
-        </section>
-        <section class="s_container_inner s_container_inner2">
-            <div id="copyGallery" class="d_Gallery_copy d_Gallery_copy_selected">
-                <p>current query date = @Model.date</p>
+    <div id="gallery-container">
+        <div id="gallery-flex">
+            <div id="gallery-form">
+                <strong>@Model.rover</strong>
+                <p>@Model.date.ToShortDateString()</p>
                 @using (Html.BeginForm("Gallery", "Home", FormMethod.Post))
                 {
                     <input type="date" id="start" name="date"
-                           value="2018-07-22"
+                           value="2020-08-22"
                            min="2015-01-01" max="2021-12-31">
                     <select name="rover">
                         <option value="curiosity">Curiosity</option>
@@ -68,22 +24,11 @@
                     </select>
                     <input type="submit" />
                 }
-                <section class="s_Gallery_images">
-                    <!--First portfolio image-->
-                    <div onclick="showCard1();" class="Gallery_outer_div">
-                        <img class="Gallery_image" src="~/Images/roverboy.jpg" alt="Image of Mars Rover">
-                        <div class="Gallery_copy">
-                            Rover Pictures
-                        </div>
-                    </div>
-                </section>
             </div>
-            <div id="copyConverter" class="d_Gallery_copy">
-                Converter stuff
-            </div>
-        </section>
-        <div class="d_footer">
-
+            @foreach (var photo in Model.photos)
+            {
+                <a href=@photo.ImgSrc target=”_blank”><img class="gallery_image" src=@photo.ImgSrc></a>
+            }
         </div>
-    </section>
+    </div>
 </body>
