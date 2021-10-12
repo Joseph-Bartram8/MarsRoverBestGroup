@@ -17,7 +17,7 @@
     left: 0;
     z-index: 2;
     cursor: pointer;
-    width: 80px;
+    width: 65px;
     height: 80px;
     opacity: 0;
 }
@@ -27,7 +27,7 @@
         top: 0;
         left: 0;
         z-index: 1;
-        width: 80px;
+        width: 65px;
         height: 80px;
         padding: 1rem;
         background-color: #660000;
@@ -39,7 +39,7 @@
 /* Hamburger line */
 .menu-wrap .hamburger > div {
     position: relative;
-    width: 80%;
+    width: 110%;
     height: 2px;
     background-color: #fff;
     display: flex;
