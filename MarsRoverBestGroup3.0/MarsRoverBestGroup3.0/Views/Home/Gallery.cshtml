@@ -10,19 +10,31 @@
         <div id="gallery-flex">
             <div id="gallery-form">
                 <strong>@Model.rover</strong>
-                <p>@Model.date.ToShortDateString()</p>
+                <p style="padding:0px 0px 15px 0px">@Model.date.ToShortDateString() - @Model.camera camera</p>
                 @using (Html.BeginForm("Gallery", "Home", FormMethod.Post))
                 {
                     <input type="date" id="start" name="date"
                            value="2020-08-22"
                            min="2015-01-01" max="2021-12-31">
-                    <select name="rover">
-                        <option value="curiosity">Curiosity</option>
-                        <option value="perseverance">Perseverance</option>
-                        <option value="opportunity">Opportunity</option>
-                        <option value="spirit">Spirit</option>
-                    </select>
-                    <input type="submit" />
+                    <div style="display:flex">
+                        <select id="rover-options" name="rover">
+                            <option value="curiosity">Curiosity</option>
+                            <option value="perseverance">Perseverance</option>
+                            <option value="opportunity">Opportunity</option>
+                            <option value="spirit">Spirit</option>
+                        </select>
+                        <select id="camera-options" name="camera">
+                            <option value="all">all</option>
+                            <option value="fhaz">fhaz</option>
+                            <option value="rhaz">rhaz</option>
+                            <option value="mast">mast</option>
+                            <option value="chemcam">chemcam</option>
+                            <option value="mahli">mahli</option>
+                            <option value="mardi">mardi</option>
+                            <option value="navcam">navcam</option>
+                        </select>
+                    </div>
+                    <input type="submit" id="submit" />
                 }
             </div>
             @foreach (var photo in Model.photos)
@@ -32,3 +44,23 @@
         </div>
     </div>
 </body>
+<script>
+    var lookup = {
+        'curiosity': ['all', 'fhaz', 'rhaz', 'mast', 'chemcam', 'mahli', 'mardi', 'navcam'],
+        'perseverance': ['all'],
+        'opportunity': ['all', 'fhaz', 'rhaz', 'navcam', 'pancam', 'minites'],
+        'spirit': ['all', 'fhaz', 'rhaz', 'navcam', 'pancam', 'minites'],
+    };
+    var roverSelect = document.getElementById("rover-options");
+    var cameraSelect = document.getElementById("camera-options");
+    roverSelect.onchange = function() {
+        var selectValue = roverSelect.value;
+        cameraSelect.innerHTML = "";
+        lookup[selectValue].forEach(function (e) {
+            var newOption = document.createElement("option");
+            newOption.value = e;
+            newOption.innerHTML = e;
+            cameraSelect.appendChild(newOption);
+        })
+    };
+</script>
