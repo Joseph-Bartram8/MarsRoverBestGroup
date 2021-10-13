@@ -25,12 +25,12 @@ namespace MarsRoverBestGroup3._0
             var apod = JsonConvert.DeserializeObject<APOD>(response.Content);
             return apod;
         }
-        public List<Photo> GetMarsRoverPhotosByDateAndRover(DateTime earth_date, string rover_name = "curiosity", string camera_name = null)
+        public List<Photo> GetMarsRoverPhotosByDateAndRover(DateTime earth_date, string rover_name = "curiosity", string camera_name = "all")
         {
             var earth_date_to_string = earth_date.ToString("yyyy-MM-dd");
             var request = new RestRequest($"/mars-photos/api/v1/rovers/{rover_name}/photos", DataFormat.Json);
             request.AddQueryParameter("earth_date", earth_date_to_string);
-            if (camera_name is not null)
+            if (camera_name != "all")
             {
                 request.AddQueryParameter("camera", camera_name);
             }

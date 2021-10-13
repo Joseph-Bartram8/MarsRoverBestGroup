@@ -12,5 +12,6 @@ namespace MarsRoverBestGroup3._0.Models
         public string rover { get; set; }
 
         public bool APIStatus  { get; set; }
+        public string camera { get; set; }
     }
 }

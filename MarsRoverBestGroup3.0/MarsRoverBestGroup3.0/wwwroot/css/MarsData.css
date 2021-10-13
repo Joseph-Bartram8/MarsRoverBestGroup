@@ -1,9 +1,14 @@
-﻿.s_container_inner {
+﻿body {
+    overflow: scroll;
+}
+
+.s_container_inner {
     display: flex;
     flex-direction: column;
     align-content: center;
     flex-wrap: wrap;
     width: 100%;
+    overflow: auto;
 }
 
 .inputBox {
@@ -39,3 +44,11 @@ form input, form output {
     width: 300px;
 }
 
+.d_FactBox {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 500px;
+    height: 200px;
+    border: 5px solid black;
+}
