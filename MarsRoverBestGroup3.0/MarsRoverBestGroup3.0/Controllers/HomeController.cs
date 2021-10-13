@@ -24,7 +24,12 @@ namespace MarsRoverBestGroup3._0.Controllers
             ViewBag.Motto = "we got:";
             return View();
         }
-
+        public IActionResult Martian()
+        {
+            ViewBag.Title = "watch out";
+            ViewBag.Motto = "they're approaching";
+            return View();
+        }
         public IActionResult MarsData()
         {
             ViewBag.Title = "welcome to mars";
