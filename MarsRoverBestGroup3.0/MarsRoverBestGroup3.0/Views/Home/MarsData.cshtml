@@ -12,26 +12,27 @@
         </div>
         <section class="s_container_inner">
             <div id="apod-card">
-                <div id="apod" style="background-image:url(@Model.apod.url)" aria-label="image of the day @Model.apod.title" alt="image of the day">
-                    <h5 id="title">@Model.apod.title</h5><br />
+                <div style="overflow-y:auto; height:300px; width:900px">
+                    <img id="apod" src=@Model.apod.url aria-label="image of the day @Model.apod.title" alt="image of the day">
+                    
                 </div>
                 <div id="text-box">
-                    
+                    <h5 id="title">@Model.apod.title</h5><br />
                     <p id="image-info">@Model.apod.explanation</p>
 
                 </div>
             </div>
 
-            <div>
+            <div class="date-box">
                 <form method="post" action="/Home/ConvertEarthDate" class="d-flex">
-                    <label for=" earthInputDate">Select an Earth date and convert to corresnponding Mars Sol date</label>
+                    <label for=" earthInputDate">Select an Earth date and convert to corresponding Mars Sol date</label>
                     <input class="inputBox" id="earth-date-input" type="date" name="earthInputDate" placeholder="Earth date" aria-label="Earth date" style="text-align: center; margin-top: 10px">
                     <button class="btn btn-outline-danger" id="earth-to-mars-convert" type="submit">Convert</button>
-                    <output class="form-control me-2" id="mars-date-output" for="earth-date-input" aria-label="Mars Sol date" style="text-align: center; margin-top: 10px ">@Model.marsOutputDate </output>
+                    <output class="form-control me-2" id="mars-date-output" for="earth-date-input" aria-label="Mars Sol date" style="text-align: center; margin-top: 10px ">@Model.marsOutputDate Sols</output>
                     <span  style=" color:black; font-weight:bold; padding:5px;">@Model.DateErrorMessage</span>
                 </form>
             </div>
-            <div>
+            <div class="date-box">
                 <form method="post" action="/Home/ConvertMarsDate" class="d-flex">
                     <label for="marsInputDate">Select a Mars Sol Date and convert to corresponding Earth Date</label>
                     <input class="inputBox" id="mars-date-input" type="text" name="marsInputDate" placeholder="Mars Sol Date" aria-label="Mars Sol Date" style="text-align: center; margin-top: 10px">

@@ -60,7 +60,7 @@ form input, form output {
     overflow-y: auto;
     max-width: 900px;
     padding: 5px;
-    border: 5px solid black;
+   
 }
 
 #text-box p {
@@ -79,11 +79,15 @@ main{
     height: 2000px;
 }
 
-#apod {
-    background-position: center;
-    max-width: 900px;
-    max-height: 300px;
-    min-height: 300px;
-    overflow-y: auto;
+#apod-card{
+ border: 5px solid black;
+}
+
+.date-box {
+    text-align: center;
+    width: 400px;
+    height: 250px;
+    border: 5px solid black;
+    margin-top: 3px;
 }
 
