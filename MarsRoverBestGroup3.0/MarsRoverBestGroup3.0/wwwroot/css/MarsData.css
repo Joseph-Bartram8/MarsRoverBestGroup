@@ -1,9 +1,14 @@
-﻿.s_container_inner {
+﻿body {
+    overflow: scroll;
+}
+
+.s_container_inner {
     display: flex;
     flex-direction: column;
     align-content: center;
     flex-wrap: wrap;
     width: 100%;
+    overflow: auto;
 }
 
 .inputBox {
