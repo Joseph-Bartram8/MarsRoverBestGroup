@@ -38,7 +38,7 @@ namespace MarsRoverBestGroup3._0
             var response = _restClient.Get<MarsRoverPhotosResponse>(request);
             if (response.StatusCode != System.Net.HttpStatusCode.OK)
             {
-                throw new Exception("API Call invalid");
+                throw new Exception();
             }
             return response.Data.photos;
         }
