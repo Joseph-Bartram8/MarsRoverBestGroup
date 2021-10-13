@@ -16,7 +16,9 @@ namespace MarsRoverBestGroup3._0.Models
            
            if (earthDate >= new DateTime(1873, 12, 29)){
                 double differenceInDays = earthDate.Subtract(new DateTime(1873, 12, 29)).TotalDays;
+
                 double MarsSolDate = (differenceInDays * earthConversionRate);
+
                 return (int)Math.Floor(MarsSolDate);
 
             }
@@ -30,10 +32,22 @@ namespace MarsRoverBestGroup3._0.Models
         }
         public static DateTime MarsToEarthDate(string marsDate)
         {
-            double secondsSinceSolOrigin = marsDate * 88775.0;
-            DateTime earthDateTime = new DateTime(1873, 12, 29, 12, 0, 0).AddSeconds(secondsSinceSolOrigin);
-            var earthDate = earthDateTime.Date;
-            return earthDate;
+
+            bool isNumeric = double.TryParse(marsDate, out double number);
+            if (isNumeric)
+            {
+                double secondsSinceSolOrigin = number * 88775.0;
+                DateTime earthDateTime = new DateTime(1873, 12, 29, 12, 0, 0).AddSeconds(secondsSinceSolOrigin);
+                var earthDate = earthDateTime.Date;
+                return earthDate;
+
+            }
+            else
+            {
+                throw new Exception("Mars Sol date has to be a number"); 
+            }
+            
+
         }
 
         public static int CurrentMarsDate()
