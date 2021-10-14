@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using MarsRoverBestGroup3._0.ViewModels;
 
 namespace MarsRoverBestGroup3._0.Controllers
 {
@@ -27,9 +28,19 @@ namespace MarsRoverBestGroup3._0.Controllers
 
         public IActionResult MarsData()
         {
+            Viewmodel viewmodel = new Viewmodel();
+            RoverSols newSol = new RoverSols();
+            HomepageViewModel hpvm = new HomepageViewModel();
+            newSol.CuriositySolOutput = DateConverter.CuriositySol(DateTime.Now);
+            newSol.PerserveranceSolOutput = DateConverter.PerseveranceSol(DateTime.Now);
+            newSol.OpportunitySolOutput = DateConverter.OpportunitySol(DateTime.Now);
+            newSol.SpiritSolOutput = DateConverter.SpiritSol(DateTime.Now);
+            newSol.SojournerSolOutput = DateConverter.SojournerSol(DateTime.Now);
+            viewmodel.RoverSols = newSol;
+            viewmodel.HomePage = hpvm;
             ViewBag.Title = "welcome to mars";
             ViewBag.Motto = "we got:";
-            return View(new HomepageViewModel());
+            return View ("marsData", viewmodel);
         }
 
         public IActionResult Gallery()
@@ -72,33 +83,108 @@ namespace MarsRoverBestGroup3._0.Controllers
         [HttpPost]
         public IActionResult ConvertEarthDate(Dates dates)
         {
+            Viewmodel viewmodel = new Viewmodel();
+            RoverSols newSol = new RoverSols();
+            HomepageViewModel hpvm = new HomepageViewModel();
+            newSol.CuriositySolOutput = DateConverter.CuriositySol(DateTime.Now);
+            newSol.PerserveranceSolOutput = DateConverter.PerseveranceSol(DateTime.Now);
+            newSol.OpportunitySolOutput = DateConverter.OpportunitySol(DateTime.Now);
+            newSol.SpiritSolOutput = DateConverter.SpiritSol(DateTime.Now);
+            newSol.SojournerSolOutput = DateConverter.SojournerSol(DateTime.Now);
+            viewmodel.RoverSols = newSol;
+
             try
             {
-                var marsDate = DateConverter.EarthToMarsDate(dates.earthInputDate);
-                var convertedDate = new HomepageViewModel { marsOutputDate = marsDate };
-                return View("Marsdata", convertedDate);
+                hpvm.marsOutputDate =DateConverter.EarthToMarsDate(dates.earthInputDate);
+                viewmodel.HomePage = hpvm;
+                
+                return View("MarsData", viewmodel);
+                
+                
             }
             catch (ArgumentException exception)
             {
-                var dateError = new HomepageViewModel { DateErrorMessage = exception.Message };
-                return View("Marsdata", dateError);
+                hpvm.DateErrorMessage = exception.Message;
+                viewmodel.HomePage = hpvm;
+                return View("Marsdata", viewmodel);
             }
         }
 
         [HttpPost]
         public IActionResult ConvertMarsDate(Dates dates)
         {
-            try
-            {
-                var earthDate = DateConverter.MarsToEarthDate(dates.marsInputDate);
-                var convertedDate = new HomepageViewModel { earthOutputDate = earthDate };
-                return View("MarsData", convertedDate);
+            Viewmodel viewmodel = new Viewmodel();
+            RoverSols newSol = new RoverSols();
+            HomepageViewModel hpvm = new HomepageViewModel();
+            newSol.CuriositySolOutput = DateConverter.CuriositySol(DateTime.Now);
+            newSol.PerserveranceSolOutput = DateConverter.PerseveranceSol(DateTime.Now);
+            newSol.OpportunitySolOutput = DateConverter.OpportunitySol(DateTime.Now);
+            newSol.SpiritSolOutput = DateConverter.SpiritSol(DateTime.Now);
+            newSol.SojournerSolOutput = DateConverter.SojournerSol(DateTime.Now);
+            viewmodel.RoverSols = newSol;
+
+        
+                try
+                {
+                    hpvm.earthOutputDate = DateConverter.MarsToEarthDate(dates.marsInputDate);
+                    viewmodel.HomePage = hpvm;
+
+                    return View("MarsData", viewmodel);
+
+
+                }
+                catch (ArgumentException exception)
+                {
+                    hpvm.DateErrorMessage = exception.Message;
+                    viewmodel.HomePage = hpvm;
+                    return View("Marsdata", viewmodel);
+                }
             }
-            catch(ArgumentOutOfRangeException outOfRange)
-            {
-                var dateError = new HomepageViewModel { ParameterErrorMessage = outOfRange.Message };
-                return View("Marsdata", dateError);
-            }
+        /*
+        public IActionResult DisplayCuriositySols(RoverSols roverSols)
+        {
+            Viewmodel viewmodel = new Viewmodel();
+            var newSol = new RoverSols();
+            newSol.CuriositySolOutput = DateConverter.CuriositySol(DateTime.Now);
+            newSol.PerserveranceSolOutput = DateConverter.PerseveranceSol(DateTime.Now);
+            newSol.OpportunitySolOutput= DateConverter.OpportunitySol(DateTime.Now);
+            newSol.SpiritSolOutput = DateConverter.SpiritSol(DateTime.Now);
+            newSol.SojournerSolOutput = DateConverter.SojournerSol(DateTime.Now);
+            viewmodel.RoverSols = newSol;
+            return View("MarsData", newSol);
         }
+
+        
+        
+        public IActionResult DisplayPerseveranceSols(RoverSols roverSols)
+        {
+            var roverDays = DateConverter.PerseveranceSol(roverSols.roverSolInput);
+            var newSol = new RoverSols();
+            newSol.roverSolOutput = roverDays;
+            return View("MarsData", newSol);
+        }
+        public IActionResult DisplayOpportunitySols(RoverSols roverSols)
+        {
+            var roverDays = DateConverter.OpportunitySol(roverSols.roverSolInput);
+            var newSol = new RoverSols();
+            newSol.roverSolOutput = roverDays;
+            return View("MarsData", newSol);
+        }
+        public IActionResult DisplaySpiritSols(RoverSols roverSols)
+        {
+            var roverDays = DateConverter.OpportunitySol(roverSols.roverSolInput);
+            var newSol = new RoverSols();
+            newSol.roverSolOutput = roverDays;
+            return View("MarsData", newSol);
+        }
+        public IActionResult DisplaySojournerSols(RoverSols roverSols)
+        {
+            var roverDays = DateConverter.OpportunitySol(roverSols.roverSolInput);
+            var newSol = new RoverSols();
+            newSol.roverSolOutput = roverDays;
+            return View("MarsData", newSol);
+        }
+        */
     }
+
 }

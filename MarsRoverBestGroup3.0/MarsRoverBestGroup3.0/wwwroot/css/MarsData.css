@@ -47,3 +47,18 @@ form input, form output {
     height: 200px;
     border: 5px solid black;
 }
+
+main{
+    overflow-y: auto !important;
+}
+
+.rovers{
+    background-image: url(/Images/Curiositys-Selfie.jpg);
+    width: 600px;
+    height: 350px;
+    background-position: right;
+    
+
+
+
+}
