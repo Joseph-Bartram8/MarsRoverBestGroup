@@ -13,7 +13,7 @@
         <section class="s_container_inner">
             <div>
                 <form method="post" action="/Home/ConvertEarthDate" class="d-flex">
-                    <label for=" earthInputDate">Select an Earth date and convert to corresnponding Mars Sol date</label>
+                    <label for="earth-date-input">Select an Earth date and convert to corresponding Mars Sol date</label>
                     <input class="inputBox" id="earth-date-input" type="date" name="earthInputDate" placeholder="Earth date" aria-label="Earth date" style="text-align: center; margin-top: 10px">
                     <button class="btn btn-outline-danger" id="earth-to-mars-convert" type="submit">Convert</button>
                     <output class="form-control me-2" id="mars-date-output" for="earth-date-input" aria-label="Mars Sol date" style="text-align: center; margin-top: 10px ">@Model.marsOutputDate </output>
@@ -22,7 +22,7 @@
             </div>
             <div >
                 <form method="post" action="/Home/ConvertMarsDate" class="d-flex">
-                    <label for="marsInputDate">Select a Mars Sol Date and convert to corresponding Earth Date</label>
+                    <label for="mars-date-input">Select a Mars Sol Date and convert to corresponding Earth Date</label>
                     <input class="inputBox" id="mars-date-input" type="text" name="marsInputDate" placeholder="Mars Sol Date" aria-label="Mars Sol Date" style="text-align: center; margin-top: 10px">
                     <button class="btn btn-outline-danger " id="mars-to-earth-convert" type="submit">Convert</button>
                     

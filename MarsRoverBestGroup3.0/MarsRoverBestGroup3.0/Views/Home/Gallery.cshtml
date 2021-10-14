@@ -13,17 +13,17 @@
                 <p style="padding:0px 0px 15px 0px">@Model.date.ToShortDateString() - @Model.camera camera</p>
                 @using (Html.BeginForm("Gallery", "Home", FormMethod.Post))
                 {
-                    <input type="date" id="start" name="date"
+                    <input type="date" id="start" title="date to search" name="date"
                            value="2020-08-22"
                            min="2015-01-01" max="2021-12-31">
                     <div style="display:flex">
-                        <select id="rover-options" name="rover">
+                        <select id="rover-options" title="rover" name="rover">
                             <option value="curiosity">Curiosity</option>
                             <option value="perseverance">Perseverance</option>
                             <option value="opportunity">Opportunity</option>
                             <option value="spirit">Spirit</option>
                         </select>
-                        <select id="camera-options" name="camera">
+                        <select id="camera-options" title="camera" name="camera">
                             <option value="all">all</option>
                             <option value="fhaz">fhaz</option>
                             <option value="rhaz">rhaz</option>
@@ -44,7 +44,7 @@
                 {
                     foreach (var photo in Model.photos)
                     {
-                        <a href=@photo.ImgSrc target=”_blank”><img class="gallery_image" src=@photo.ImgSrc></a>
+                        <a href=@photo.ImgSrc target=”_blank”><img class="gallery_image" alt="@photo.Rover.Name + @photo.Camera.FullName + @photo.EarthDate" src=@photo.ImgSrc></a>
                     }
 
                 }
