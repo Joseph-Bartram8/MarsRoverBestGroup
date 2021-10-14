@@ -25,7 +25,12 @@ namespace MarsRoverBestGroup3._0.Controllers
             ViewBag.Motto = "we got:";
             return View();
         }
-
+        public IActionResult Martian()
+        {
+            ViewBag.Title = "watch out";
+            ViewBag.Motto = "they're approaching";
+            return View();
+        }
         public IActionResult MarsData()
         {
             Viewmodel viewmodel = new Viewmodel();
@@ -45,28 +50,49 @@ namespace MarsRoverBestGroup3._0.Controllers
 
         public IActionResult Gallery()
         {
-            ViewBag.Title = "gallery";
-            ViewBag.Motto = "get rover pics";
-            DateTime defaultDate = new DateTime(2020, 08, 15);
-            GalleryModel galleryModel = new GalleryModel();
-            galleryModel.date = defaultDate;
-            galleryModel.rover = "curiosity";
-            galleryModel.camera = "all";
-            galleryModel.photos = _apiCall.GetMarsRoverPhotosByDateAndRover(defaultDate);
-            return View(galleryModel);
+            try
+            {
+                ViewBag.Title = "gallery";
+                ViewBag.Motto = "get rover pics";
+                DateTime defaultDate = new DateTime(2020, 08, 15);
+                GalleryModel galleryModel = new GalleryModel();
+                galleryModel.date = defaultDate;
+                galleryModel.rover = "curiosity";
+                galleryModel.photos = _apiCall.GetMarsRoverPhotosByDateAndRover(defaultDate);
+                galleryModel.APIStatus = true;
+                return View(galleryModel);
+
+            }
+            catch 
+            {
+                
+                var ApiError = new GalleryModel { APIStatus = false };
+                return View("Gallery", ApiError);
+            }
+            
         }
 
         [HttpPost]
         public ActionResult Gallery(GalleryPostModel postModel)
         {
-            ViewBag.Title = "gallery";
-            ViewBag.Motto = "get rover pics";
-            GalleryModel galleryModel = new GalleryModel();
-            galleryModel.date = postModel.date;
-            galleryModel.rover = postModel.rover;
-            galleryModel.camera = postModel.camera;
-            galleryModel.photos = _apiCall.GetMarsRoverPhotosByDateAndRover(postModel.date, postModel.rover, postModel.camera);
-            return View(galleryModel);
+            try
+            {
+                ViewBag.Title = "gallery";
+                ViewBag.Motto = "get rover pics";
+                GalleryModel galleryModel = new GalleryModel();
+                galleryModel.date = postModel.date;
+                galleryModel.rover = postModel.rover;
+                galleryModel.photos = _apiCall.GetMarsRoverPhotosByDateAndRover(postModel.date, postModel.rover);
+                galleryModel.APIStatus = true;
+                return View(galleryModel);
+
+            }
+            catch
+            {
+                var ApiError = new GalleryModel { APIStatus = false };
+                return View("Gallery", ApiError);
+            }
+            
         }
 
         public IActionResult Privacy()
@@ -140,51 +166,7 @@ namespace MarsRoverBestGroup3._0.Controllers
                     return View("Marsdata", viewmodel);
                 }
             }
-        /*
-        public IActionResult DisplayCuriositySols(RoverSols roverSols)
-        {
-            Viewmodel viewmodel = new Viewmodel();
-            var newSol = new RoverSols();
-            newSol.CuriositySolOutput = DateConverter.CuriositySol(DateTime.Now);
-            newSol.PerserveranceSolOutput = DateConverter.PerseveranceSol(DateTime.Now);
-            newSol.OpportunitySolOutput= DateConverter.OpportunitySol(DateTime.Now);
-            newSol.SpiritSolOutput = DateConverter.SpiritSol(DateTime.Now);
-            newSol.SojournerSolOutput = DateConverter.SojournerSol(DateTime.Now);
-            viewmodel.RoverSols = newSol;
-            return View("MarsData", newSol);
-        }
-
         
-        
-        public IActionResult DisplayPerseveranceSols(RoverSols roverSols)
-        {
-            var roverDays = DateConverter.PerseveranceSol(roverSols.roverSolInput);
-            var newSol = new RoverSols();
-            newSol.roverSolOutput = roverDays;
-            return View("MarsData", newSol);
-        }
-        public IActionResult DisplayOpportunitySols(RoverSols roverSols)
-        {
-            var roverDays = DateConverter.OpportunitySol(roverSols.roverSolInput);
-            var newSol = new RoverSols();
-            newSol.roverSolOutput = roverDays;
-            return View("MarsData", newSol);
-        }
-        public IActionResult DisplaySpiritSols(RoverSols roverSols)
-        {
-            var roverDays = DateConverter.OpportunitySol(roverSols.roverSolInput);
-            var newSol = new RoverSols();
-            newSol.roverSolOutput = roverDays;
-            return View("MarsData", newSol);
-        }
-        public IActionResult DisplaySojournerSols(RoverSols roverSols)
-        {
-            var roverDays = DateConverter.OpportunitySol(roverSols.roverSolInput);
-            var newSol = new RoverSols();
-            newSol.roverSolOutput = roverDays;
-            return View("MarsData", newSol);
-        }
-        */
     }
 
 }
