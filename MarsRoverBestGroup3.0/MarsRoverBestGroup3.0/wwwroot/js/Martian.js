@@ -269,7 +269,7 @@ WelcomeState.prototype.draw = function (game, dt, ctx) {
     ctx.textAlign = "center";
     ctx.fillText("Angry Martians", game.width / 2, game.height / 2 - 40);
     ctx.font = "16px Arial";
-    ctx.fillText("Press 'Space' or touch to start.", game.width / 2, game.height / 2);
+    ctx.fillText("Press 'Space' or click 'Shoot'.", game.width / 2, game.height / 2);
 };
 
 WelcomeState.prototype.keyDown = function (game, keyCode) {
@@ -843,12 +843,10 @@ Sounds.prototype.loadSound = function (name, url) {
 };
 
 Sounds.prototype.playSound = function (name) {
-
     //  If we've not got the sound, don't bother playing it.
     if (this.sounds[name] === undefined || this.sounds[name] === null || this.mute === true) {
         return;
     }
-
     //  Create a sound source, set the buffer, connect to the speakers and
     //  play the sound.
     var source = this.audioContext.createBufferSource();
