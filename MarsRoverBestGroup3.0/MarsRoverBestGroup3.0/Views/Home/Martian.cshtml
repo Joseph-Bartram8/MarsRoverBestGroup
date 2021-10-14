@@ -5,9 +5,17 @@
 </head>
 
 <body>
+
     <div id="starfield"></div>
-    <div id="gamecontainer">
-        <canvas id="gameCanvas"></canvas>
+    <div id="game-wrapper">
+        <div id="gamecontainer">
+            <canvas id="gameCanvas"></canvas>
+            <div id="gamepad">
+                <button onclick="move_left()" id="left">Left</button>
+                <button onclick="move_right()" id="right">Right</button>
+                <button onclick="fire_rocket()" id="shoot">Shoot</button>
+            </div>
+        </div>
     </div>
     <script>
         //  Create the starfield.
@@ -38,5 +46,24 @@
             var keycode = e.which || window.event.keycode;
             game.keyUp(keycode);
         });
+
+        function move_left() {
+            game.keyDown(37);
+            setTimeout(function () {
+                game.keyUp(37);
+            }, 300);
+        }
+        function move_right() {
+            game.keyDown(39);
+            setTimeout(function () {
+                game.keyUp(39);
+            }, 300);
+        }
+        function fire_rocket() {
+            game.keyDown(32);
+            setTimeout(function () {
+                game.keyUp(32);
+            }, 300);
+        }
     </script>
 </body>
