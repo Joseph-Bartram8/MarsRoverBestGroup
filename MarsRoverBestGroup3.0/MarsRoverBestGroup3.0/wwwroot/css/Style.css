@@ -178,3 +178,19 @@ main {
 .ListStuff {
     display: inline;
 }
+
+@media screen and (max-width: 700px) {
+    #nav-clocks {
+        width: 0px;
+        height: 0px;
+        overflow: hidden;
+    }
+    nav {
+        margin-left: 65px;
+    }
+    footer {
+        width: 0px;
+        height: 0px;
+        overflow: hidden;
+    }
+}
