@@ -9,15 +9,16 @@ body {
     display: flex;
     justify-content: center;
 }
+
 #gallery-flex {
     padding: 1em;
     display: flex;
     flex-wrap: wrap;
-    max-height: calc(90vh - 80px);
     gap: 7px;
     overflow-y: auto;
     justify-content: center;
     background-color: rgba(0,0,0,0.8);
+    height: inherit;
 }
 #gallery-form {
     background-color: #381a1a;

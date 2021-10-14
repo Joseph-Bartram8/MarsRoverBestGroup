@@ -34,7 +34,9 @@ namespace MarsRoverBestGroup3._0.Controllers
         {
             ViewBag.Title = "welcome to mars";
             ViewBag.Motto = "we got:";
-            return View(new HomepageViewModel());
+            var viewModel = new HomepageViewModel();
+            viewModel.apod = _apiCall.AstronomyPhotoOfTheDay();
+            return View(viewModel);
         }
 
         public IActionResult Gallery()
