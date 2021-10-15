@@ -153,19 +153,33 @@ namespace MarsRoverBestGroup3._0.Controllers
                 try
                 {
                     hpvm.earthOutputDate = DateConverter.MarsToEarthDate(dates.marsInputDate);
-                    
+
 
                     return View("MarsData", hpvm);
 
 
                 }
-                catch (ArgumentException exception)
+                catch (ArgumentOutOfRangeException outOfRange)
                 {
-                    hpvm.DateErrorMessage = exception.Message;
+                   
+                    hpvm.ParameterErrorMessage = outOfRange.Message;
                     
                     return View("Marsdata", hpvm);
                 }
-            }
+                catch (Exception notANumber)
+                {
+
+                    hpvm.ParameterErrorMessage = notANumber.Message;
+                    
+                    return View("Marsdata", hpvm);
+
+                
+
+                }
+                
+            
+
+        }
         
     }
 
