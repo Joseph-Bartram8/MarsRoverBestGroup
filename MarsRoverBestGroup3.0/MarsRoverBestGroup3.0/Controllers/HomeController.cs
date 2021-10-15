@@ -122,7 +122,7 @@ namespace MarsRoverBestGroup3._0.Controllers
             try
             {
                 hpvm.marsOutputDate =DateConverter.EarthToMarsDate(dates.earthInputDate);
-                //.HomePage = hpvm;
+                
                 
                 return View("MarsData", hpvm );
                 
@@ -131,7 +131,7 @@ namespace MarsRoverBestGroup3._0.Controllers
             catch (ArgumentException exception)
             {
                 hpvm.DateErrorMessage = exception.Message;
-                //viewmodel.HomePage = hpvm;
+                
                 return View("Marsdata", hpvm);
             }
         }
@@ -147,23 +147,23 @@ namespace MarsRoverBestGroup3._0.Controllers
             newSol.OpportunitySolOutput = DateConverter.OpportunitySol(DateTime.Now);
             newSol.SpiritSolOutput = DateConverter.SpiritSol(DateTime.Now);
             newSol.SojournerSolOutput = DateConverter.SojournerSol(DateTime.Now);
-            viewmodel.RoverSols = newSol;
+            hpvm.RoverSols = newSol;
 
         
                 try
                 {
                     hpvm.earthOutputDate = DateConverter.MarsToEarthDate(dates.marsInputDate);
-                    viewmodel.HomePage = hpvm;
+                    
 
-                    return View("MarsData", viewmodel);
+                    return View("MarsData", hpvm);
 
 
                 }
                 catch (ArgumentException exception)
                 {
                     hpvm.DateErrorMessage = exception.Message;
-                    viewmodel.HomePage = hpvm;
-                    return View("Marsdata", viewmodel);
+                    
+                    return View("Marsdata", hpvm);
                 }
             }
         
