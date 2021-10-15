@@ -147,25 +147,36 @@ namespace MarsRoverBestGroup3._0.Controllers
             newSol.OpportunitySolOutput = DateConverter.OpportunitySol(DateTime.Now);
             newSol.SpiritSolOutput = DateConverter.SpiritSol(DateTime.Now);
             newSol.SojournerSolOutput = DateConverter.SojournerSol(DateTime.Now);
-            viewmodel.RoverSols = newSol;
+            hpvm.RoverSols = newSol;
 
         
                 try
                 {
                     hpvm.earthOutputDate = DateConverter.MarsToEarthDate(dates.marsInputDate);
-                    viewmodel.HomePage = hpvm;
+                   
 
-                    return View("MarsData", viewmodel);
+                    return View("MarsData", hpvm);
 
 
-                }
-                catch (ArgumentException exception)
+                }catch (ArgumentOutOfRangeException outOfRange)
                 {
-                    hpvm.DateErrorMessage = exception.Message;
-                    viewmodel.HomePage = hpvm;
-                    return View("Marsdata", viewmodel);
+                   
+                    hpvm.ParameterErrorMessage = outOfRange.Message;
+                    
+                    return View("Marsdata", hpvm);
                 }
-            }
+                catch (Exception notANumber)
+                {
+                    hpvm.ParameterErrorMessage = notANumber.Message;
+                    
+                    return View("Marsdata", hpvm);
+
+                
+                }
+                
+            
+
+        }
         
     }
 
