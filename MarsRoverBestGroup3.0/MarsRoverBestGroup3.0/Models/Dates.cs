@@ -20,7 +20,6 @@ namespace MarsRoverBestGroup3._0.Models
         public string ParameterErrorMessage { get; set; }
         public RoverSols RoverSols { get; set; }
 
-
     }
     public class RoverSols
         {
@@ -31,5 +30,6 @@ namespace MarsRoverBestGroup3._0.Models
         public int SpiritSolOutput { get; set; }
         public int SojournerSolOutput { get; set; }
         public int PerserveranceSolOutput { get; set; }
+        public APOD apod { get; set; }
     }
 }
