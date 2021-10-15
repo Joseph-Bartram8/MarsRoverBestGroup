@@ -41,11 +41,11 @@ namespace MarsRoverBestGroup3._0.Controllers
             newSol.OpportunitySolOutput = DateConverter.OpportunitySol(DateTime.Now);
             newSol.SpiritSolOutput = DateConverter.SpiritSol(DateTime.Now);
             newSol.SojournerSolOutput = DateConverter.SojournerSol(DateTime.Now);
+            newSol.apod = _apiCall.AstronomyPhotoOfTheDay();
             hpvm.RoverSols = newSol;
             
             ViewBag.Title = "welcome to mars";
             ViewBag.Motto = "we got:";
-            newSol.apod = _apiCall.AstronomyPhotoOfTheDay();
             return View ("marsData", hpvm);
         }
 
@@ -118,6 +118,7 @@ namespace MarsRoverBestGroup3._0.Controllers
             newSol.OpportunitySolOutput = DateConverter.OpportunitySol(DateTime.Now);
             newSol.SpiritSolOutput = DateConverter.SpiritSol(DateTime.Now);
             newSol.SojournerSolOutput = DateConverter.SojournerSol(DateTime.Now);
+            newSol.apod = _apiCall.AstronomyPhotoOfTheDay();
             hpvm.RoverSols = newSol;
 
             try
@@ -148,6 +149,7 @@ namespace MarsRoverBestGroup3._0.Controllers
             newSol.OpportunitySolOutput = DateConverter.OpportunitySol(DateTime.Now);
             newSol.SpiritSolOutput = DateConverter.SpiritSol(DateTime.Now);
             newSol.SojournerSolOutput = DateConverter.SojournerSol(DateTime.Now);
+            newSol.apod = _apiCall.AstronomyPhotoOfTheDay();
             hpvm.RoverSols = newSol;
 
         
