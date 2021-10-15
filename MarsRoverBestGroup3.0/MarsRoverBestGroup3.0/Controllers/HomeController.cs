@@ -33,7 +33,7 @@ namespace MarsRoverBestGroup3._0.Controllers
         }
         public IActionResult MarsData()
         {
-            Viewmodel viewmodel = new Viewmodel();
+            
             RoverSols newSol = new RoverSols();
             HomepageViewModel hpvm = new HomepageViewModel();
             newSol.CuriositySolOutput = DateConverter.CuriositySol(DateTime.Now);
@@ -41,11 +41,11 @@ namespace MarsRoverBestGroup3._0.Controllers
             newSol.OpportunitySolOutput = DateConverter.OpportunitySol(DateTime.Now);
             newSol.SpiritSolOutput = DateConverter.SpiritSol(DateTime.Now);
             newSol.SojournerSolOutput = DateConverter.SojournerSol(DateTime.Now);
-            viewmodel.RoverSols = newSol;
-            viewmodel.HomePage = hpvm;
+            hpvm.RoverSols = newSol;
+            
             ViewBag.Title = "welcome to mars";
             ViewBag.Motto = "we got:";
-            return View ("marsData", viewmodel);
+            return View ("marsData", hpvm);
         }
 
         public IActionResult Gallery()
@@ -109,7 +109,7 @@ namespace MarsRoverBestGroup3._0.Controllers
         [HttpPost]
         public IActionResult ConvertEarthDate(Dates dates)
         {
-            Viewmodel viewmodel = new Viewmodel();
+            
             RoverSols newSol = new RoverSols();
             HomepageViewModel hpvm = new HomepageViewModel();
             newSol.CuriositySolOutput = DateConverter.CuriositySol(DateTime.Now);
@@ -117,22 +117,22 @@ namespace MarsRoverBestGroup3._0.Controllers
             newSol.OpportunitySolOutput = DateConverter.OpportunitySol(DateTime.Now);
             newSol.SpiritSolOutput = DateConverter.SpiritSol(DateTime.Now);
             newSol.SojournerSolOutput = DateConverter.SojournerSol(DateTime.Now);
-            viewmodel.RoverSols = newSol;
+            hpvm.RoverSols = newSol;
 
             try
             {
                 hpvm.marsOutputDate =DateConverter.EarthToMarsDate(dates.earthInputDate);
-                viewmodel.HomePage = hpvm;
+                //.HomePage = hpvm;
                 
-                return View("MarsData", viewmodel);
+                return View("MarsData", hpvm );
                 
                 
             }
             catch (ArgumentException exception)
             {
                 hpvm.DateErrorMessage = exception.Message;
-                viewmodel.HomePage = hpvm;
-                return View("Marsdata", viewmodel);
+                //viewmodel.HomePage = hpvm;
+                return View("Marsdata", hpvm);
             }
         }
 

@@ -18,10 +18,13 @@ namespace MarsRoverBestGroup3._0.Models
 
         public string DateErrorMessage { get; set; }
         public string ParameterErrorMessage { get; set; }
+        public RoverSols RoverSols { get; set; }
+
 
     }
     public class RoverSols
-    {
+        {
+
         public DateTime roverSolInput { get; set; }
         public int CuriositySolOutput { get; set; }
         public int OpportunitySolOutput { get; set; }
