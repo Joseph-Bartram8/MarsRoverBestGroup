@@ -1,69 +1,229 @@
-﻿body {
-    overflow: scroll;
-}
-
-.s_container_inner {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    flex-wrap: wrap;
-    width: 100%;
-    overflow: auto;
-}
-
-.inputBox {
-    margin-bottom: 20px;
-    font-size: 18px;
-    width: 300px;
-    height: 34px;
-}
-
-.contact-form textarea {
-    margin-bottom: 20px;
-    font-size: 18px;
-    width: 300px;
-}
-
-.d_MarsFactBox {
-    width: 500px;
-    height: 200px;
-    padding: 50px;
-    text-align: center;
-    border: 5px solid black;
-    margin: auto;
-}
-
-form {
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-    align-items: center;
-}
-
-form input, form output {
-    width: 300px;
-}
-
-.d_FactBox {
+﻿#gallery-container {
+    padding: 1em 2.5em 1em 2em;
     display: flex;
     justify-content: center;
-    align-content: center;
-    width: 500px;
+}
+
+#gallery-flex {
+    padding: 1em;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    overflow-y: auto;
+    justify-content: center;
+    background-color: rgba(0,0,0,0.8);
+    height: inherit;
+}
+
+#gallery-form {
+    background-color: #381a1a;
+    border-radius: 2px;
+    width: auto;
     height: 200px;
+    padding: 10px;
+    border-color: white
+}
+
+    #gallery-form form {
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+    }
+
+#gallery-flex strong {
+    font-size: 2em;
+    letter-spacing: -1px;
+    font-weight: 500;
+}
+
+select, input {
+    border: none;
+    padding: 0 1em 0 0;
+    margin: 0;
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    background-color: #631611;
+    box-shadow: 0px 1px 2px rgba(255 175 175 / 80%);
+    cursor: pointer;
+}
+
+#submit {
+    background-color: #631611;
+    color: white;
+    padding: 5px;
+    font-size: 1.1em;
+}
+
+.d_formatting {
+    margin-right: 300px;
+}
+
+#apod-card {
     border: 5px solid black;
 }
 
-main{
-    overflow-y: auto !important;
+#text-box {
+    max-height: 200px;
+    overflow-y: auto;
+    max-width: 900px;
+    padding: 5px;
 }
 
-.rovers{
-    background-image: url(/Images/Curiositys-Selfie.jpg);
-    width: 600px;
-    height: 350px;
-    background-position: right;
-    
+    #text-box p {
+        font-size: 0.85em;
+        line-height: 1;
+        padding: 5px;
+    }
+
+    #text-box h5 {
+        text-align: center;
+    }
+
+.menu-wrap2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+    .menu-wrap2 .toggler2 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        cursor: pointer;
+        width: 65px;
+        height: 80px;
+        opacity: 0;
+    }
+
+    .menu-wrap2 .hamburger2 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        width: 65px;
+        height: 80px;
+        padding: 1rem;
+        background-color: #660000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+        /* Hamburger line */
+        .menu-wrap2 .hamburger2 > div {
+            position: relative;
+            width: 110%;
+            height: 2px;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s ease;
+        }
+
+            /* Top and bottom lines */
+            .menu-wrap2 .hamburger2 > div:before,
+            .menu-wrap2 .hamburger2 > div:after {
+                content: "";
+                position: absolute;
+                z-index: 1;
+                top: -10px;
+                width: 100%;
+                height: 2px;
+                background: inherit;
+            }
+
+            /* Moves line down */
+            .menu-wrap2 .hamburger2 > div:after {
+                top: 10px;
+            }
+
+    /* Toggler animate */
+    .menu-wrap2 .toggler2:checked + .hamburger2 > div {
+        transform: rotate(135deg);
+    }
+
+        /* Turn lines into X */
+        .menu-wrap2 .toggler2:checked + .hamburger2 > div:before,
+        .menu-wrap2 .toggler2:checked + .hamburger2 > div:after {
+            top: 0;
+            transform: rotate(90deg);
+        }
+
+    /* Rotate on hover when checked */
+    .menu-wrap2 .toggler2:checked:hover + .hamburger2 > div {
+        transform: rotate(225deg);
+    }
+
+    /* Show menu */
+    .menu-wrap2 .toggler2:checked ~ .menu2 {
+        visibility: visible;
+    }
+
+        .menu-wrap2 .toggler2:checked ~ .menu2 > div {
+            transform: scale(1);
+            transition-duration: var(--menu-speed);
+        }
+
+            .menu-wrap2 .toggler2:checked ~ .menu2 > div > div {
+                opacity: 1;
+                transition: opacity 0, 4s ease;
+            }
+
+    .menu-wrap2 .menu2 {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        visibility: hidden;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .menu-wrap2 .menu2 > div {
+            background: var(--overlay-color);
+            border-radius: 50%;
+            width: 200vw;
+            height: 200vw;
+            display: flex;
+            flex: none;
+            align-items: center;
+            justify-content: center;
+            transform: scale(0);
+            transition: all 0.4s ease;
+        }
+
+    .menu-wrap2 menu2 > div > div {
+        text-align: center;
+        max-width: 90vw;
+        max-height: 100vw;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+    }
+
+    .menu-wrap2 .menu2 > div > div > ul > li {
+        list-style: none;
+        color: #fff;
+        font-size: 1.5rem;
+        padding: 1rem;
+    }
+
+        .menu-wrap2 .menu2 > div > div > ul > li > a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.4s ease;
+            font-size: revert;
+        }
 
 
-
+.img-Style {
+    width: 100%;
+    height: 200px;
 }

@@ -45,6 +45,7 @@ namespace MarsRoverBestGroup3._0.Controllers
             
             ViewBag.Title = "welcome to mars";
             ViewBag.Motto = "we got:";
+            newSol.apod = _apiCall.AstronomyPhotoOfTheDay();
             return View ("marsData", hpvm);
         }
 

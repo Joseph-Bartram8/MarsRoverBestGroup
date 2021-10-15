@@ -1,55 +1,77 @@
 ﻿@model MarsRoverBestGroup3._0.Models.HomepageViewModel
 <head>
     <link rel="stylesheet" href="/css/MarsData.css">
-    
+    <script src="~/js/DataPage2.js"></script>
 </head>
+
 <body>
-    <section class="s_container">
-        <div class="d_header">
-            <h1>
-                Different Mars data Stuff
-            </h1>
+    <div id="overlayClose" class="menu-wrap2" style="display: none;">
+        <input id="menu_button2" type="checkbox" class="toggler2" onclick="closeOverlay();">
+        <div class="hamburger2"><div></div></div>
+        <div class="menu2" onclick="menuClose()">
+            <div>
+                <section>
+                    <div style="display: flex; align-items: center;">
+                        <img id="apod" src=@Model.RoverSols.apod.url aria-label="image of the day @Model.RoverSols.apod.title" alt="image of the day">
+                    </div>
+                </section>
+            </div>
         </div>
-        <section class="s_container_inner">
+    </div>
+    <div id="gallery-flex" style="padding:0px 0px 15px 0px">
+        <div id="gallery-form">
+            <!--First portfolio image-->
+            <div onclick="showCard1();">
+                <div id="apod-card">
+                    <div>
+                        <img class="img-Style"src="~/Images/rocks.jpg" alt="image of the day">
+                    </div>
+                    <div>
+                        <div id="text-box">
+                            <h5 id="title">@Model.RoverSols.apod.title</h5><br />
+                            <p id="image-info">@Model.RoverSols.apod.explanation</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="float: right; padding-bottom: 200px">
+                <a class="twitter-timeline" data-width="300" data-height="400" href="https://twitter.com/MarsCuriosity?ref_src=twsrc%5Etfw">Tweets by MarsCuriosity</a>
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
+            <div class="d_formatting">
+                <form method="post" action="/Home/ConvertEarthDate" class="d-flex">
+                    <label for=" earthInputDate">Select an Earth date and convert to corresponding Mars Sol date</label>
+                    <input class="inputBox" id="earth-date-input" type="date" name="earthInputDate" placeholder="Earth date" aria-label="Earth date" style="text-align: center; margin-top: 10px">
+                    <button class="btn btn-outline-danger" id="earth-to-mars-convert" type="submit">Convert to</button>
+                    <output class="form-control me-2" id="mars-date-output" for="earth-date-input" aria-label="Mars Sol date" style="text-align: center; margin-top: 10px ">@Model.marsOutputDate </output>
+                    <p>@Model.DateErrorMessage</p>
+                </form>
+            </div>
+            <div class="d_formatting">
+                <form method="post" action="/Home/ConvertMarsDate" class="d-flex">
+                    <label for="marsInputDate">Select a Mars Sol Date and convert to corresponding Earth Date</label>
+                    <input class="inputBox" id="mars-date-input" type="text" name="marsInputDate" placeholder="Mars Sol Date" aria-label="Mars Sol Date" style="text-align: center; margin-top: 10px">
+                    <button class="btn btn-outline-danger " id="mars-to-earth-convert" type="submit">Convert to</button>
+                    <output class="form-control me-2" id="earth-date-output" for="mars-date-input" aria-label="Earth date" style="text-align: center; margin-top: 10px ">@Model.earthOutputDate.ToShortDateString() (give or take a day)</output>
+                    <p>@Model.ParameterErrorMessage</p>
+                </form>
+            </div>
             <div class="rovers">
                 <p>
-                    <h5>How many sols the rovers have been on mars</h5> 
                     Curiosity: @Model.RoverSols.CuriositySolOutput <br />
                     Perserverance: @Model.RoverSols.PerserveranceSolOutput <br />
                     Oppurtunity: @Model.RoverSols.OpportunitySolOutput <br />
                     Spirit: @Model.RoverSols.SpiritSolOutput <br />
                     Soujourner: @Model.RoverSols.SojournerSolOutput <br />
                 </p>
-
             </div>
-            <div>
-                <form method="post" action="/Home/ConvertEarthDate" class="d-flex">
-                    <label for="earth-date-input">Select an Earth date and convert to corresponding Mars Sol date</label>
-                    <input class="inputBox" id="earth-date-input" type="date" name="earthInputDate" placeholder="Earth date" aria-label="Earth date" style="text-align: center; margin-top: 10px">
-
-                    <button class="btn btn-outline-danger" id="earth-to-mars-convert" type="submit">Convert to</button>
-                    <output class="form-control me-2" id="mars-date-output" for="earth-date-input" aria-label="Mars Sol date" style="text-align: center; margin-top: 10px ">@Model.marsOutputDate </output>
-                    <p>@Model.DateErrorMessage</p>
-
-                </form>
-            </div>
-            <div >
-                <form method="post" action="/Home/ConvertMarsDate" class="d-flex">
-                    <label for="mars-date-input">Select a Mars Sol Date and convert to corresponding Earth Date</label>
-                    <input class="inputBox" id="mars-date-input" type="text" name="marsInputDate" placeholder="Mars Sol Date" aria-label="Mars Sol Date" style="text-align: center; margin-top: 10px">
-
-                    <button class="btn btn-outline-danger " id="mars-to-earth-convert" type="submit">Convert to</button>
-                    <output class="form-control me-2" id="earth-date-output" for="mars-date-input" aria-label="Earth date" style="text-align: center; margin-top: 10px ">@Model.earthOutputDate.ToShortDateString() (give or take a day)</output>
-                    <p>@Model.ParameterErrorMessage</p>
-
-                </form>
-            </div>
-            <div class="d_FactBox">
-                <p id="Facts">
+            <div style="height: 100px" class="d_FactBox d_formatting">
+                <p id="Facts" style="width: 65vh;">
                     PlaceHolder
                 </p>
             </div>
-        </section>
-    </section>
+        </div>
+    </div>
+    <script src="/js/MarsData.js"></script>
 </body>
-<script src="/js/MarsData.js"></script>
