@@ -1,4 +1,12 @@
-﻿#starfield {
+﻿#game-wrapper {
+    width: 100%;
+    height: 100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+#starfield {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -6,8 +14,43 @@
     top: 0px;
 }
 #gamecontainer {
-    width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+    height: 600px;
     z-index:1;
-} 
+    display:flex;
+    justify-content:center;
+}
+#gameCanvas {
+    position:absolute;
+    top: -130px;
+}
+#gamepad {
+    z-index:3;
+    display: grid;
+    grid-template-rows: repeat(2, 50px);
+    grid-template-columns: repeat(4, 50px);
+    grid-template-areas: "s s s s"
+        "l l r r";
+    position:absolute;
+    bottom: 0px;
+    grid-gap: 2px;
+}
+#left {
+    grid-area: l;
+}
+#right {
+    grid-area: r;
+}
+#shoot {
+    grid-area: s;
+}
+footer {
+    height: 0px !important;
+    width: 0px !important;
+    overflow: hidden;
+}
+button {
+    color:black;
+    border-radius:0;
+    cursor: pointer;
+    background-color: rgba(255,255,255,0.7);
+}

@@ -13,11 +13,13 @@
                 <p style="padding:0px 0px 15px 0px">@Model.date.ToShortDateString() - @Model.camera camera</p>
                 @using (Html.BeginForm("Gallery", "Home", FormMethod.Post))
                 {
-                    <input type="date" id="start" title="date to search" name="date"
-                           value="2020-08-22"
-                           min="2015-01-01" max="2021-12-31">
-                    <div style="display:flex">
+
+
+<input type="date" id="start" title="date to search" name="date"
+                           value="2012-08-06"
+                           min="2004-01-04" max="2021-12-31"><div style="display:flex">
                         <select id="rover-options" title="rover" name="rover">
+                            
                             <option value="curiosity">Curiosity</option>
                             <option value="perseverance">Perseverance</option>
                             <option value="opportunity">Opportunity</option>
@@ -40,22 +42,22 @@
 
             @if (Model.APIStatus)
             {
-                if (Model.photos.Any())
-                {
-                    foreach (var photo in Model.photos)
-                    {
+                                            if (Model.photos.Any())
+                                            {
+                                                foreach (var photo in Model.photos)
+                                                {
                         <a href=@photo.ImgSrc target=”_blank”><img class="gallery_image" alt="@photo.Rover.Name + @photo.Camera.FullName + @photo.EarthDate" src=@photo.ImgSrc></a>
                     }
 
-                }
+                            }
                 else
-                {
+                            {
                     <span style="color: white">No photos available for this query</span>
                 }
 
             }
             else
-            {
+                            {
                 <span style="color: white">Couldn't retrieve any data</span>
 
             }
@@ -67,15 +69,24 @@
 </body>
 <script>
     var lookup = {
-        'curiosity': ['all', 'fhaz', 'rhaz', 'mast', 'chemcam', 'mahli', 'mardi', 'navcam'],
+                                'curiosity': ['all', 'fhaz', 'rhaz', 'mast', 'chemcam', 'mahli', 'mardi', 'navcam'],
         'perseverance': ['all'],
         'opportunity': ['all', 'fhaz', 'rhaz', 'navcam', 'pancam', 'minites'],
         'spirit': ['all', 'fhaz', 'rhaz', 'navcam', 'pancam', 'minites'],
     };
+    var dates = {
+        'curiosity': "2012-08-06",
+        'perseverance': "2021-02-18",
+        'opportunity': "2004-01-25",
+        'spirit': "2010-03-22",
+
+    }
     var roverSelect = document.getElementById("rover-options");
     var cameraSelect = document.getElementById("camera-options");
-    roverSelect.onchange = function() {
+    var dateSelect = document.getElementById("start");
+    roverSelect.onchange = function () {
         var selectValue = roverSelect.value;
+        dateSelect.value = dates[selectValue];
         cameraSelect.innerHTML = "";
         lookup[selectValue].forEach(function (e) {
             var newOption = document.createElement("option");

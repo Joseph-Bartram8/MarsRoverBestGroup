@@ -41,37 +41,57 @@ a {
 }
 
 .banner-container {
-    height:33%;
+    height:33.33%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-size: cover;
+    background-size:cover;
     background-repeat: no-repeat;
-    padding: 10px;
-    grid-area: img;
-    padding: 1em;
+    padding: 0px 10px 0px 10px;
     background-position: center;
     box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5);
-    background-size: 100%;
     transition: background-size 2s;
     background-blend-mode: hard-light;
     background-color: rgba(0,0,0,0.5);
     cursor: pointer;
 }
-
-    .banner-container:hover {
-        background-size: 110%;
-        background-blend-mode: normal;
-    }
-
 .banner, .banner-r {
     display: flex;
     width: 1000px;
-    min-width: 700px;
 }
-
 .banner-r {
     text-align: right;
     justify-content: flex-end;
+}
+
+#gallery-b {
+    background-image: url(/Images/Curiositys-Selfie.jpg);
+}
+#data-b {
+    background-image: url(/Images/marslandscape.jpg);
+}
+#martian-b {
+    background-image: url(/Images/degu-mouse.jpg);
+}
+#gallery-b:hover, #data-b:hover, #martian-b:hover {
+    background-blend-mode: normal;
+}
+footer {
+    display:none !important;
+}
+@media screen and (max-width: 700px) {
+    .preview-title {
+        font-size: 30px;
+        font-size: 15vw;
+        letter-spacing: -2px;
+        line-height: 0.8;
+        user-select: none;
+    }
+    nav{
+        overflow:hidden;
+    }
+    main {
+        overflow:hidden;
+    }
 }
 
