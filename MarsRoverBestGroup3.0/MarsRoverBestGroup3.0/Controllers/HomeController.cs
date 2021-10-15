@@ -122,7 +122,7 @@ namespace MarsRoverBestGroup3._0.Controllers
             try
             {
                 hpvm.marsOutputDate =DateConverter.EarthToMarsDate(dates.earthInputDate);
-                
+                //.HomePage = hpvm;
                 
                 return View("MarsData", hpvm );
                 
@@ -131,7 +131,7 @@ namespace MarsRoverBestGroup3._0.Controllers
             catch (ArgumentException exception)
             {
                 hpvm.DateErrorMessage = exception.Message;
-                
+                //viewmodel.HomePage = hpvm;
                 return View("Marsdata", hpvm);
             }
         }
@@ -139,7 +139,7 @@ namespace MarsRoverBestGroup3._0.Controllers
         [HttpPost]
         public IActionResult ConvertMarsDate(Dates dates)
         {
-            Viewmodel viewmodel = new Viewmodel();
+            
             RoverSols newSol = new RoverSols();
             HomepageViewModel hpvm = new HomepageViewModel();
             newSol.CuriositySolOutput = DateConverter.CuriositySol(DateTime.Now);
@@ -153,13 +153,12 @@ namespace MarsRoverBestGroup3._0.Controllers
                 try
                 {
                     hpvm.earthOutputDate = DateConverter.MarsToEarthDate(dates.marsInputDate);
-
+                   
 
                     return View("MarsData", hpvm);
 
 
-                }
-                catch (ArgumentOutOfRangeException outOfRange)
+                }catch (ArgumentOutOfRangeException outOfRange)
                 {
                    
                     hpvm.ParameterErrorMessage = outOfRange.Message;
@@ -168,13 +167,11 @@ namespace MarsRoverBestGroup3._0.Controllers
                 }
                 catch (Exception notANumber)
                 {
-
                     hpvm.ParameterErrorMessage = notANumber.Message;
                     
                     return View("Marsdata", hpvm);
 
                 
-
                 }
                 
             
