@@ -33,7 +33,8 @@ namespace MarsRoverBestGroup3._0.Controllers
         }
         public IActionResult MarsData()
         {
-            
+            ViewBag.Title = "mars data";
+            ViewBag.Motto = "get martian numbers";
             RoverSols newSol = new RoverSols();
             HomepageViewModel hpvm = new HomepageViewModel();
             newSol.CuriositySolOutput = DateConverter.CuriositySol(DateTime.Now);
@@ -43,9 +44,6 @@ namespace MarsRoverBestGroup3._0.Controllers
             newSol.SojournerSolOutput = DateConverter.SojournerSol(DateTime.Now);
             newSol.apod = _apiCall.AstronomyPhotoOfTheDay();
             hpvm.RoverSols = newSol;
-            
-            ViewBag.Title = "welcome to mars";
-            ViewBag.Motto = "we got:";
             return View ("marsData", hpvm);
         }
 
@@ -110,7 +108,8 @@ namespace MarsRoverBestGroup3._0.Controllers
         [HttpPost]
         public IActionResult ConvertEarthDate(Dates dates)
         {
-            
+            ViewBag.Title = "mars data";
+            ViewBag.Motto = "get martian numbers";
             RoverSols newSol = new RoverSols();
             HomepageViewModel hpvm = new HomepageViewModel();
             newSol.CuriositySolOutput = DateConverter.CuriositySol(DateTime.Now);
@@ -141,7 +140,8 @@ namespace MarsRoverBestGroup3._0.Controllers
         [HttpPost]
         public IActionResult ConvertMarsDate(Dates dates)
         {
-            
+            ViewBag.Title = "mars data";
+            ViewBag.Motto = "get martian numbers";
             RoverSols newSol = new RoverSols();
             HomepageViewModel hpvm = new HomepageViewModel();
             newSol.CuriositySolOutput = DateConverter.CuriositySol(DateTime.Now);
