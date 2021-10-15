@@ -34,6 +34,8 @@ a {
     font-size: 5em;
     letter-spacing: -2px;
     line-height: 0.8;
+    -webkit-user-select: none;
+    -ms-user-select: none;
     user-select: none;
     color: wheat;
 }
@@ -61,6 +63,7 @@ a {
     text-align: right;
     justify-content: flex-end;
 }
+
 #gallery-b {
     background-image: url(/Images/Curiositys-Selfie.jpg);
 }
@@ -91,3 +94,4 @@ footer {
         overflow:hidden;
     }
 }
+
