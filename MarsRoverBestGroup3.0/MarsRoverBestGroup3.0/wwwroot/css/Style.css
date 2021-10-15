@@ -111,8 +111,8 @@ p {
 footer {
     display: flex;
     width: 100vw;
+    bottom: 0;
     background-color: rgba(0,0,0,1);
-    bottom: -10px;
     background-color: darkslategrey;
     padding: 2px 1em 2px 1em;
     align-items: center;
@@ -120,8 +120,9 @@ footer {
     position: fixed;
     transition: 0.5s;
 }
-footer:hover {
-    bottom:0;
+footer p {
+    font-size: 0.9em;
+    padding: 0;
 }
 
 #footer-nav {
@@ -179,18 +180,24 @@ main {
     display: inline;
 }
 
+@media screen and (max-width: 900px) {
+    footer p {
+       display: none; 
+    }
+}
 @media screen and (max-width: 700px) {
     #nav-clocks {
-        width: 0px;
-        height: 0px;
-        overflow: hidden;
+        display: none;
     }
-    nav {
+    #nav-title p {
+        display:none;
+    }
+}
+@media screen and (max-width: 480px) {
+    #nav-title {
         margin-left: 65px;
     }
     footer {
-        width: 0px;
-        height: 0px;
-        overflow: hidden;
+        display: none;
     }
 }
